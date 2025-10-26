@@ -39,15 +39,6 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body class="bg-gray-50 text-gray-800 transition-colors duration-300" id="body">
-    <!-- Language Switcher -->
-    <button id="languageToggle" class="language-toggle" aria-label="Switch language">
-        <span id="currentLanguage" class="text-sm font-semibold text-gray-700">EN</span>
-    </button>
-
-    <!-- Dark Mode Toggle -->
-    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-        <i data-lucide="moon" class="w-5 h-5 text-gray-700"></i>
-    </button>
 
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-40 transition-colors duration-300" id="header">
@@ -102,6 +93,19 @@
                         <i data-lucide="trending-up" class="w-16 h-16 text-blue-300 mx-auto"></i>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Control Buttons -->
+            <div class="absolute top-6 right-6 flex gap-3 z-50">
+                <!-- Language Switcher -->
+                <button id="languageToggle" class="language-toggle" aria-label="Switch language">
+                    <span id="currentLanguage" class="text-sm font-semibold text-gray-700">EN</span>
+                </button>
+
+                <!-- Dark Mode Toggle -->
+                <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                    <i data-lucide="moon" class="w-5 h-5 text-gray-700"></i>
+                </button>
             </div>
         </div>
     </main>
