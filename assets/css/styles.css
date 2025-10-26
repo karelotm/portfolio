@@ -14,6 +14,7 @@ body {
 }
 
 /* ===== HERO SECTION ===== */
+/* Updated: Enhanced visibility and contrast */
 .hero-bg {
     background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
     background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
