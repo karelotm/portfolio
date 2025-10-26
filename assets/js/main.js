@@ -12,7 +12,6 @@ const translations = {
             about: 'About',
             skills: 'Skills',
             projects: 'Projects',
-            testimonials: 'Testimonials',
             contact: 'Contact',
             contactMe: 'Contact Me'
         },
@@ -34,10 +33,6 @@ const translations = {
         projects: {
             title: 'My Main Projects',
             description: 'Here is a selection of projects that illustrate my expertise in dashboard creation, analysis, and automation.'
-        },
-        testimonials: {
-            title: 'What Clients Say',
-            description: 'Don\'t just take my word for it - here\'s what my clients have to say about working with me.'
         },
         contact: {
             title: 'Let\'s work together',
@@ -62,7 +57,6 @@ const translations = {
             about: 'À propos',
             skills: 'Compétences',
             projects: 'Projets',
-            testimonials: 'Témoignages',
             contact: 'Contact',
             contactMe: 'Me contacter'
         },
@@ -84,10 +78,6 @@ const translations = {
         projects: {
             title: 'Mes Principaux Projets',
             description: 'Voici une sélection de projets qui illustrent mon expertise en création de tableaux de bord, analyse et automatisation.'
-        },
-        testimonials: {
-            title: 'Ce que disent les clients',
-            description: 'Ne vous fiez pas seulement à mes dires - voici ce que mes clients disent de travailler avec moi.'
         },
         contact: {
             title: 'Travaillons ensemble',

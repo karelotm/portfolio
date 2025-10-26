@@ -15,8 +15,8 @@ body {
 
 /* ===== HERO SECTION ===== */
 .hero-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
     background-size: 20px 20px;
     position: relative;
     overflow: hidden;
@@ -29,8 +29,67 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.08) 50%, transparent 70%);
     animation: shimmer 3s infinite;
+}
+
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+}
+
+.hero-content h2 {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: #93c5fd !important;
+}
+
+.hero-content p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #e5e7eb !important;
+}
+
+.hero-content .btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-content .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+}
+
+.hero-content .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: #1e3a8a;
+    transform: translateY(-2px);
+}
+
+.hero-content .floating {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.hero-content .floating i {
+    color: #93c5fd !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 @keyframes shimmer {
@@ -484,6 +543,22 @@ body {
     color: #e5e5e5;
 }
 
+/* ===== HERO SECTION BUTTONS ===== */
+.hero-content .flex {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content .btn-primary,
+.hero-content .btn-secondary {
+    min-width: 180px;
+    margin: 0.5rem;
+    position: relative;
+    z-index: 10;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     .hero-bg {
@@ -517,6 +592,13 @@ body {
         height: 44px;
         padding: 10px;
     }
+    
+    .hero-content .btn-primary,
+    .hero-content .btn-secondary {
+        min-width: 160px;
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -533,6 +615,27 @@ body {
     .btn-secondary {
         width: 100%;
         margin-bottom: 12px;
+    }
+    
+    .hero-content .btn-primary,
+    .hero-content .btn-secondary {
+        min-width: 140px;
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .language-toggle {
+        right: 60px;
+        min-width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+    
+    .dark-mode-toggle {
+        right: 12px;
+        min-width: 40px;
+        height: 40px;
+        padding: 8px;
     }
 }
 
