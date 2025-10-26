@@ -75,11 +75,20 @@ Portfolio/
 
 ## 🚀 Deployment
 
+### Live Website
+🌐 **Live Portfolio**: [https://karelotm.github.io/portfolio](https://karelotm.github.io/portfolio)
+
+### Deployment Options
 This portfolio is designed to be deployed on:
-- **GitHub Pages**: [karelotm.github.io](https://karelotm.github.io) (recommended)
+- **GitHub Pages**: ✅ Currently deployed (recommended)
 - **Netlify**
 - **Vercel**
 - Any static hosting service
+
+### Quick Setup
+1. Clone this repository
+2. Enable GitHub Pages in repository settings
+3. Your site will be live at `https://karelotm.github.io/portfolio`
 
 ## 🚀 GitHub Repositories
 
