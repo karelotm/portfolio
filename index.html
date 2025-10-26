@@ -7,21 +7,14 @@
     <meta name="keywords" content="data analysis, excel, power bi, dashboard, automation, vba, power query, business intelligence">
     <meta name="author" content="Karim El Otmani">
     
-    <!-- Open Graph Meta Tags -->
+    <!-- Social Media Meta Tags -->
     <meta property="og:title" content="Karim El Otmani - Data Specialist & Excel Master">
     <meta property="og:description" content="I transform complex data into interactive dashboards and automated solutions that drive decision-making and optimize business processes.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://karelotm.github.io">
-    <meta property="og:image" content="https://karelotm.github.io/assets/images/og-image.jpg">
-    
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Karim El Otmani - Data Specialist & Excel Master">
-    <meta name="twitter:description" content="I transform complex data into interactive dashboards and automated solutions that drive decision-making and optimize business processes.">
-    <meta name="twitter:image" content="https://karelotm.github.io/assets/images/og-image.jpg">
     
     <title>Karim El Otmani's Portfolio - Data & Excel Specialist</title>
-    <!-- Updated: Removed testimonials section -->
     
     <!-- External CSS Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,26 +26,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=11.0">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- Favicon - Add your favicon.ico to the root directory when available -->
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 </head>
 <body class="bg-gray-50 text-gray-800 transition-colors duration-300" id="body">
+
+    <!-- Floating Control Buttons - Positioned under Contact Me -->
+    <div id="floatingControls" class="floating-controls">
+        <!-- Language Switcher -->
+        <button id="languageToggle" class="language-toggle" aria-label="Switch language">
+            <span id="currentLanguage" class="text-sm font-semibold text-gray-700">EN</span>
+        </button>
+
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+            <i data-lucide="moon" class="w-5 h-5 text-gray-700"></i>
+        </button>
+    </div>
 
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-40 transition-colors duration-300" id="header">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-gray-900">
+            <!-- Logo - Left side -->
+            <div class="text-xl font-bold text-gray-900 flex-shrink-0">
                 <a href="#" class="gradient-text" aria-label="Home">Karim El Otmani</a>
             </div>
-            <div class="hidden md:flex items-center space-x-8">
+            
+            <!-- Navigation Links - Center -->
+            <div class="hidden md:flex items-center space-x-10 flex-1 justify-center">
                 <a href="#about" class="nav-link text-gray-600 hover:text-blue-600 transition" data-translate="nav.about">About</a>
                 <a href="#skills" class="nav-link text-gray-600 hover:text-blue-600 transition" data-translate="nav.skills">Skills</a>
                 <a href="#projects" class="nav-link text-gray-600 hover:text-blue-600 transition" data-translate="nav.projects">Projects</a>
                 <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition" data-translate="nav.contact">Contact</a>
             </div>
-            <a href="#contact" class="hidden md:block btn-primary" data-translate="nav.contactMe">Contact Me</a>
+            
+            <!-- Contact Me Button - Right side -->
+            <div class="hidden md:flex items-center flex-shrink-0">
+                <a href="#contact" class="btn-primary" data-translate="nav.contactMe">Contact Me</a>
+            </div>
             
             <!-- Mobile menu button -->
             <button id="mobileMenuBtn" class="md:hidden p-2" aria-label="Toggle mobile menu">
@@ -95,18 +108,6 @@
                 </div>
             </div>
             
-            <!-- Control Buttons -->
-            <div class="absolute top-6 right-6 flex gap-3 z-50">
-                <!-- Language Switcher -->
-                <button id="languageToggle" class="language-toggle" aria-label="Switch language">
-                    <span id="currentLanguage" class="text-sm font-semibold text-gray-700">EN</span>
-                </button>
-
-                <!-- Dark Mode Toggle -->
-                <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                    <i data-lucide="moon" class="w-5 h-5 text-gray-700"></i>
-                </button>
-            </div>
         </div>
     </main>
 
@@ -536,6 +537,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Custom JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=3.0"></script>
 </body>
 </html>

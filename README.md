@@ -20,12 +20,16 @@ A modern, responsive portfolio website showcasing expertise in data analysis, Ex
 Portfolio/
 ├── index.html              # Main HTML file
 ├── README.md              # Project documentation
+├── .gitignore             # Git ignore rules
 └── assets/                # Assets directory
     ├── css/
-    │   └── styles.css     # All custom styles
+    │   └── styles.css     # Optimized custom styles
     ├── js/
-    │   └── main.js        # All JavaScript functionality
-    └── images/            # Image assets (placeholder for future use)
+    │   └── main.js        # Optimized JavaScript functionality
+    ├── images/            # Image assets directory
+    │   └── README.md      # Image guidelines
+    └── documents/
+        └── resume.html    # Resume/CV document
 ```
 
 ## 🛠️ Technologies Used
@@ -78,17 +82,34 @@ Portfolio/
 ### Live Website
 🌐 **Live Portfolio**: [https://karelotm.github.io/portfolio](https://karelotm.github.io/portfolio)
 
-### Deployment Options
-This portfolio is designed to be deployed on:
-- **GitHub Pages**: ✅ Currently deployed (recommended)
-- **Netlify**
-- **Vercel**
-- Any static hosting service
+### GitHub Pages Setup
+1. **Go to Repository Settings**
+   - Visit: https://github.com/karelotm/portfolio
+   - Click on the **"Settings"** tab
 
-### Quick Setup
-1. Clone this repository
-2. Enable GitHub Pages in repository settings
-3. Your site will be live at `https://karelotm.github.io/portfolio`
+2. **Enable GitHub Pages**
+   - Scroll to **"Pages"** section in left sidebar
+   - Under **"Source"**, select **"Deploy from a branch"**
+   - Choose **"master"** branch and **"/ (root)"** folder
+   - Click **"Save"**
+
+3. **Wait for Deployment**
+   - GitHub will build and deploy your site (1-5 minutes)
+   - Your portfolio will be live at: **https://karelotm.github.io/portfolio**
+
+### Other Deployment Options
+- **Netlify**: Drag & drop deployment
+- **Vercel**: Git-based deployment
+- **Any static hosting service**
+
+### Updating Your Portfolio
+```bash
+# Make changes to your files, then:
+git add .
+git commit -m "Update: Description of changes"
+git push origin master
+# GitHub Pages will automatically update within 1-5 minutes!
+```
 
 ## 🚀 GitHub Repositories
 
@@ -109,12 +130,15 @@ Based on your [GitHub profile](https://github.com/karelotm), here are your main 
 
 This project is open source and available under the [MIT License](LICENSE).
 
+## 📧 Contact Form
+
+The contact form uses a mailto fallback for direct email sending. When users submit the form, their default email client opens with a pre-filled message to Karim00el@gmail.com.
+
 ## 🔄 Future Enhancements
 
 - [ ] Add more project case studies
 - [ ] Implement a blog section
 - [ ] Add a downloadable resume
-- [ ] Integrate with a contact form service
 - [ ] Add more interactive elements
 - [ ] Implement PWA features
 - [ ] Add analytics tracking

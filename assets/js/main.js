@@ -109,11 +109,9 @@ const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const contactForm = document.querySelector('form');
 
-// ===== EMAILJS CONFIGURATION =====
-// You'll need to replace these with your actual EmailJS credentials
-const EMAILJS_SERVICE_ID = 'service_portfolio'; // Replace with your service ID
-const EMAILJS_TEMPLATE_ID = 'template_contact'; // Replace with your template ID
-const EMAILJS_PUBLIC_KEY = 'your_public_key_here'; // Replace with your public key
+// ===== EMAIL CONFIGURATION =====
+// Form uses mailto fallback for direct email sending
+// To enable EmailJS in the future, uncomment and configure the constants below
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -135,10 +133,7 @@ function initializeApp() {
         lucide.createIcons();
     }
 
-    // Initialize EmailJS
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init(EMAILJS_PUBLIC_KEY);
-    }
+    // EmailJS initialization removed - using mailto fallback
 
     // Initialize event listeners
     initializeEventListeners();
@@ -154,6 +149,9 @@ function initializeApp() {
     
     // Initialize form validation
     initializeFormValidation();
+    
+    // Initialize floating controls
+    initializeFloatingControls();
 }
 
 // ===== EVENT LISTENERS =====
@@ -200,11 +198,7 @@ function initializeEventListeners() {
     // Keyboard navigation
     document.addEventListener('keydown', handleKeyboardNavigation);
 
-    // Window resize handler
-    window.addEventListener('resize', handleWindowResize);
-
-    // Scroll handler for header
-    window.addEventListener('scroll', handleScroll);
+    // Window resize and scroll handlers are now managed by throttled/debounced versions below
 }
 
 // ===== DARK MODE FUNCTIONALITY =====
@@ -497,36 +491,18 @@ function handleFormSubmit(e) {
             to_email: 'Karim00el@gmail.com'
         };
         
-        // Send email using EmailJS
-        if (typeof emailjs !== 'undefined') {
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailData)
-                .then(function(response) {
-                    console.log('Email sent successfully:', response.status, response.text);
-                    showNotification('Thank you for your message! I\'ll get back to you within 24 hours.', 'success');
-                    contactForm.reset();
-                }, function(error) {
-                    console.error('Email sending failed:', error);
-                    showNotification('Sorry, there was an error sending your message. Please try again or contact me directly at Karim00el@gmail.com', 'error');
-                })
-                .finally(function() {
-                    // Reset button state
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                });
-        } else {
-            // Fallback if EmailJS is not available - use mailto
-            const mailtoLink = `mailto:Karim00el@gmail.com?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(
-                `Name: ${emailData.from_name}\nEmail: ${emailData.from_email}\n\nMessage:\n${emailData.message}`
-            )}`;
-            
-            // Open mailto link
-            window.location.href = mailtoLink;
-            
-            showNotification('Your email client should open. If not, please contact me directly at Karim00el@gmail.com', 'info');
-            contactForm.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }
+        // Use mailto for direct email sending
+        const mailtoLink = `mailto:Karim00el@gmail.com?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(
+            `Name: ${emailData.from_name}\nEmail: ${emailData.from_email}\n\nMessage:\n${emailData.message}`
+        )}`;
+        
+        // Open mailto link
+        window.location.href = mailtoLink;
+        
+        showNotification('Your email client should open. If not, please contact me directly at Karim00el@gmail.com', 'info');
+        contactForm.reset();
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
     } else {
         showNotification('Please fill in all fields correctly.', 'error');
     }
@@ -751,12 +727,31 @@ console.log(`
 🌐 Built with modern web technologies
 `);
 
-// ===== SERVICE WORKER REGISTRATION (for future PWA features) =====
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Uncomment when you have a service worker file
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered'))
-        //     .catch(error => console.log('SW registration failed'));
-    });
+// ===== FLOATING CONTROLS POSITIONING =====
+function initializeFloatingControls() {
+    const floatingControls = document.getElementById('floatingControls');
+    const header = document.getElementById('header');
+    
+    if (!floatingControls || !header) return;
+    
+    function updateFloatingControlsPosition() {
+        const scrollTop = window.pageYOffset;
+        
+        // Add scrolled class when scrolling down
+        if (scrollTop > 50) {
+            floatingControls.classList.add('scrolled');
+        } else {
+            floatingControls.classList.remove('scrolled');
+        }
+        
+        // Fixed positioning - buttons stay at consistent position
+        // CSS handles the positioning with top: 120px
+    }
+    
+    // Update position on scroll and resize
+    window.addEventListener('scroll', updateFloatingControlsPosition);
+    window.addEventListener('resize', updateFloatingControlsPosition);
+    
+    // Initial position
+    updateFloatingControlsPosition();
 }
