@@ -113,6 +113,7 @@ const contactForm = document.querySelector('form');
 // EmailJS Configuration - All credentials are correct now
 const EMAILJS_SERVICE_ID = 'service_s7tjaaj';
 const EMAILJS_TEMPLATE_ID = 'template_iobj71x';
+const EMAILJS_CONFIRMATION_TEMPLATE_ID = 'template_fg9qnhp';
 const EMAILJS_PUBLIC_KEY = 'y97WwKmCwHys-9t_K';
 
 // Initialize EmailJS
@@ -482,45 +483,56 @@ function handleFormSubmit(e) {
         // Show loading state
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
+        submitButton.textContent = 'Envoi en cours...';
         submitButton.disabled = true;
         
         // Prepare email data matching your EmailJS template variables
         const emailData = {
-            name: formData.get('name'),        // Maps to {{name}}
-            title: formData.get('subject'),    // Maps to {{title}}
-            message: formData.get('message'),  // Maps to {{message}}
-            email: formData.get('email')       // Maps to {{email}} for Reply To
+            name: formData.get('name'),
+            title: formData.get('subject'),
+            message: formData.get('message'),
+            email: formData.get('email')
         };
         
-        // Send email using EmailJS
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailData, EMAILJS_PUBLIC_KEY)
-            .then(function(response) {
-                console.log('✅ Email sent successfully!', response.status, response.text);
-                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-                contactForm.reset();
-            })
-            .catch(function(error) {
-                console.error('❌ Email sending failed:', error);
-                
-                // Fallback to mailto if EmailJS fails
-                const mailtoLink = `mailto:Karim00el@gmail.com?subject=${encodeURIComponent(emailData.title)}&body=${encodeURIComponent(
-                    `Name: ${emailData.name}\nEmail: ${emailData.email}\n\nMessage:\n${emailData.message}`
-                )}`;
-                
-                showNotification('Failed to send via EmailJS. Opening your email client...', 'warning');
-                
-                setTimeout(() => {
-                    window.location.href = mailtoLink;
-                }, 2000);
-            })
-            .finally(function() {
-                // Reset button state
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            });
+        console.log('📧 Envoi des emails via EmailJS...');
+        
+        // Send TWO emails using Promise.all for simultaneous sending
+        Promise.all([
+            // Email 1: Pour VOUS (notification)
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailData, EMAILJS_PUBLIC_KEY),
+            
+            // Email 2: Pour le CLIENT (confirmation)
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONFIRMATION_TEMPLATE_ID, emailData, EMAILJS_PUBLIC_KEY)
+        ])
+        .then(function(responses) {
+            console.log('✅ Emails envoyés avec succès!');
+            console.log('   - Email de notification envoyé:', responses[0].status);
+            console.log('   - Email de confirmation envoyé:', responses[1].status);
+            
+            showNotification('Message envoyé avec succès ! Vous recevrez une confirmation par email.', 'success');
+            contactForm.reset();
+        })
+        .catch(function(error) {
+            console.error('❌ Erreur lors de l\'envoi:', error);
+            
+            // Fallback to mailto if EmailJS fails
+            const mailtoLink = `mailto:Karim00el@gmail.com?subject=${encodeURIComponent(emailData.title)}&body=${encodeURIComponent(
+                `Nom: ${emailData.name}\nEmail: ${emailData.email}\n\nMessage:\n${emailData.message}`
+            )}`;
+            
+            showNotification('Erreur d\'envoi. Ouverture de votre client email...', 'warning');
+            
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 2000);
+        })
+        .finally(function() {
+            // Reset button state
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        });
     } else {
-        showNotification('Please fill in all fields correctly.', 'error');
+        showNotification('Veuillez remplir tous les champs correctement.', 'error');
     }
 }
 
