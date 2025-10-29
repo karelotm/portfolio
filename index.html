@@ -42,7 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=11.0">
+    <link rel="stylesheet" href="assets/css/styles.css?v=12.3">
     
     <!-- Favicon -->
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
@@ -64,6 +64,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
             <i data-lucide="moon" class="w-5 h-5 text-gray-700"></i>
         </button>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbotWidget" class="chatbot-widget">
+        <!-- Chatbot Toggle Button -->
+        <button id="chatbotToggle" class="chatbot-toggle" aria-label="Open chatbot">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+            <span class="chatbot-notification-dot"></span>
+        </button>
+
+        <!-- Chatbot Window -->
+        <div id="chatbotWindow" class="chatbot-window">
+            <!-- Chatbot Header -->
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <div class="chatbot-title">
+                        <h3>AI Assistant</h3>
+                        <span class="chatbot-status">Online</span>
+                    </div>
+                </div>
+                <div class="chatbot-header-actions">
+                    <button id="chatbotFullscreen" class="chatbot-fullscreen" aria-label="Toggle fullscreen">
+                        <i data-lucide="maximize" class="w-4 h-4"></i>
+                    </button>
+                    <button id="chatbotClose" class="chatbot-close" aria-label="Close chatbot">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chatbot Messages -->
+            <div id="chatbotMessages" class="chatbot-messages">
+                <!-- Messages will be added dynamically by JavaScript -->
+            </div>
+
+            <!-- Chatbot Input -->
+            <div class="chatbot-input-container">
+                <div class="chatbot-input-wrapper">
+                    <input type="text" id="chatbotInput" placeholder="Type your message..." class="chatbot-input" maxlength="500">
+                    <button id="chatbotSend" class="chatbot-send" aria-label="Send message">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <div class="chatbot-typing-indicator" id="chatbotTyping" style="display: none;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Header -->
@@ -557,6 +610,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Custom JavaScript -->
-    <script src="assets/js/main.js?v=3.0"></script>
+    <script src="assets/js/main.js?v=4.9"></script>
 </body>
 </html>

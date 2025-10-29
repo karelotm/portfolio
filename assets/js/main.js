@@ -4,6 +4,32 @@
 let isDarkMode = false;
 let isMenuOpen = false;
 let currentLanguage = 'en';
+let isChatbotOpen = false;
+let isChatbotFullscreen = false;
+let chatbotHistory = [];
+let webhookUrl = 'https://n8n.karelotm.dev/webhook/e985d15f-b2f6-456d-be15-97e0b1544a40/chat'; // n8n webhook URL
+let chatId = generateChatId(); // Generate unique chat ID for this session
+
+// ===== CHAT ID GENERATION =====
+function generateChatId() {
+    // Try to get existing chat ID from localStorage
+    let existingChatId = localStorage.getItem('portfolioChatId');
+    if (existingChatId) {
+        console.log('🔄 Using existing chat ID:', existingChatId);
+        return existingChatId;
+    }
+    
+    // Generate new chat ID
+    const timestamp = Date.now();
+    const random = Math.random().toString(36).substring(2, 15);
+    const newChatId = `portfolio_${timestamp}_${random}`;
+    
+    // Save to localStorage for persistence across page reloads
+    localStorage.setItem('portfolioChatId', newChatId);
+    
+    console.log('🆕 Generated new chat ID:', newChatId);
+    return newChatId;
+}
 
 // ===== TRANSLATIONS =====
 const translations = {
@@ -311,6 +337,16 @@ const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const contactForm = document.querySelector('form');
 
+// Chatbot elements
+const chatbotToggle = document.getElementById('chatbotToggle');
+const chatbotWindow = document.getElementById('chatbotWindow');
+const chatbotClose = document.getElementById('chatbotClose');
+const chatbotFullscreen = document.getElementById('chatbotFullscreen');
+const chatbotInput = document.getElementById('chatbotInput');
+const chatbotSend = document.getElementById('chatbotSend');
+const chatbotMessagesContainer = document.getElementById('chatbotMessages');
+const chatbotTyping = document.getElementById('chatbotTyping');
+
 // ===== EMAIL CONFIGURATION =====
 // EmailJS Configuration - All credentials are correct now
 const EMAILJS_SERVICE_ID = 'service_s7tjaaj';
@@ -360,6 +396,9 @@ function initializeApp() {
     
     // Initialize floating controls
     initializeFloatingControls();
+    
+    // Initialize chatbot
+    initializeChatbot();
 }
 
 // ===== EVENT LISTENERS =====
@@ -405,6 +444,28 @@ function initializeEventListeners() {
 
     // Keyboard navigation
     document.addEventListener('keydown', handleKeyboardNavigation);
+
+    // Chatbot event listeners
+    if (chatbotToggle) {
+        chatbotToggle.addEventListener('click', toggleChatbot);
+    }
+
+    if (chatbotClose) {
+        chatbotClose.addEventListener('click', closeChatbot);
+    }
+
+    if (chatbotFullscreen) {
+        chatbotFullscreen.addEventListener('click', toggleChatbotFullscreen);
+    }
+
+    if (chatbotSend) {
+        chatbotSend.addEventListener('click', sendChatbotMessage);
+    }
+
+    if (chatbotInput) {
+        chatbotInput.addEventListener('keypress', handleChatbotKeypress);
+        chatbotInput.addEventListener('input', handleChatbotInput);
+    }
 }
 
 // ===== DARK MODE FUNCTIONALITY =====
@@ -850,6 +911,11 @@ function handleKeyboardNavigation(e) {
         if (isMenuOpen) {
             closeMobileMenu();
         }
+        
+        // Exit chatbot fullscreen with Escape key
+        if (isChatbotFullscreen) {
+            toggleChatbotFullscreen();
+        }
     }
     
     // Toggle dark mode with Ctrl+D
@@ -948,6 +1014,403 @@ window.openModal = openModal;
 window.closeModal = closeModal;
 window.toggleDarkMode = toggleDarkMode;
 
+// ===== CHATBOT FUNCTIONALITY =====
+function initializeChatbot() {
+    // Hide notification dot initially
+    const notificationDot = document.querySelector('.chatbot-notification-dot');
+    if (notificationDot) {
+        notificationDot.style.display = 'none';
+    }
+    
+    // Load saved chat history
+    loadChatHistory();
+    
+    // Show welcome message if no previous messages
+    if (chatbotHistory.length === 0) {
+        addBotMessage("Hello! I'm your AI assistant. How can I help you today?");
+    }
+}
+
+function toggleChatbot() {
+    if (isChatbotOpen) {
+        closeChatbot();
+    } else {
+        openChatbot();
+    }
+}
+
+function openChatbot() {
+    if (chatbotWindow) {
+        chatbotWindow.classList.add('active');
+        isChatbotOpen = true;
+        
+        // Hide notification dot
+        const notificationDot = document.querySelector('.chatbot-notification-dot');
+        if (notificationDot) {
+            notificationDot.style.display = 'none';
+        }
+        
+        // Focus on input
+        if (chatbotInput) {
+            setTimeout(() => {
+                chatbotInput.focus();
+            }, 300);
+        }
+        
+        // Scroll to bottom
+        scrollToBottom();
+    }
+}
+
+function closeChatbot() {
+    if (chatbotWindow) {
+        chatbotWindow.classList.remove('active');
+        isChatbotOpen = false;
+    }
+}
+
+function toggleChatbotFullscreen() {
+    if (!chatbotWindow) return;
+    
+    isChatbotFullscreen = !isChatbotFullscreen;
+    
+    if (isChatbotFullscreen) {
+        // Enter fullscreen mode
+        chatbotWindow.classList.add('fullscreen');
+        updateFullscreenIcon();
+        
+        // Prevent body scroll when in fullscreen
+        document.body.style.overflow = 'hidden';
+        
+        console.log('🔍 Chatbot entered fullscreen mode');
+    } else {
+        // Exit fullscreen mode
+        chatbotWindow.classList.remove('fullscreen');
+        updateFullscreenIcon();
+        
+        // Restore body scroll
+        document.body.style.overflow = 'auto';
+        
+        console.log('🔍 Chatbot exited fullscreen mode');
+    }
+}
+
+function updateFullscreenIcon() {
+    if (!chatbotFullscreen) return;
+    
+    // Clear all existing icons first
+    chatbotFullscreen.innerHTML = '';
+    
+    if (isChatbotFullscreen) {
+        // Show minimize icon
+        const minimizeIcon = document.createElement('i');
+        minimizeIcon.setAttribute('data-lucide', 'minimize');
+        minimizeIcon.className = 'w-4 h-4';
+        chatbotFullscreen.appendChild(minimizeIcon);
+    } else {
+        // Show maximize icon
+        const maximizeIcon = document.createElement('i');
+        maximizeIcon.setAttribute('data-lucide', 'maximize');
+        maximizeIcon.className = 'w-4 h-4';
+        chatbotFullscreen.appendChild(maximizeIcon);
+    }
+    
+    // Re-initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+function handleChatbotKeypress(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendChatbotMessage();
+    }
+}
+
+function handleChatbotInput(e) {
+    const input = e.target;
+    const sendButton = chatbotSend;
+    
+    if (input.value.trim()) {
+        sendButton.disabled = false;
+    } else {
+        sendButton.disabled = true;
+    }
+}
+
+function sendChatbotMessage() {
+    const input = chatbotInput;
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add user message
+    addUserMessage(message);
+    
+    // Clear input
+    input.value = '';
+    chatbotSend.disabled = true;
+    
+    // Show typing indicator
+    showTypingIndicator();
+    
+    // Send to webhook or show default response
+    if (webhookUrl) {
+        sendToWebhook(message);
+    } else {
+        // Default response when no webhook is configured
+        setTimeout(() => {
+            hideTypingIndicator();
+            addBotMessage("I'm currently being set up with an AI agent. Please check back soon or contact Karim directly at Karim00el@gmail.com for immediate assistance!");
+        }, 1500);
+    }
+}
+
+function addUserMessage(message) {
+    const messageElement = createMessageElement('user', message);
+    chatbotMessagesContainer.appendChild(messageElement);
+    scrollToBottom();
+    
+    // Save to history
+    chatbotHistory.push({
+        type: 'user',
+        message: message,
+        timestamp: new Date().toISOString()
+    });
+    saveChatHistory();
+}
+
+function addBotMessage(message) {
+    const messageElement = createMessageElement('bot', message);
+    chatbotMessagesContainer.appendChild(messageElement);
+    scrollToBottom();
+    
+    // Save to history
+    chatbotHistory.push({
+        type: 'bot',
+        message: message,
+        timestamp: new Date().toISOString()
+    });
+    saveChatHistory();
+}
+
+function createMessageElement(type, message) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chatbot-message ${type}-message`;
+    
+    const avatarDiv = document.createElement('div');
+    avatarDiv.className = 'message-avatar';
+    avatarDiv.innerHTML = type === 'bot' ? '<i data-lucide="bot" class="w-4 h-4"></i>' : '<i data-lucide="user" class="w-4 h-4"></i>';
+    
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    
+    // Create message content with proper formatting
+    const messageContent = document.createElement('div');
+    messageContent.className = 'message-text';
+    
+    if (type === 'bot') {
+        // Format bot messages with markdown-like rendering
+        messageContent.innerHTML = formatBotMessage(message);
+    } else {
+        // User messages remain as plain text
+        messageContent.textContent = message;
+    }
+    
+    const timeSpan = document.createElement('span');
+    timeSpan.className = 'message-time';
+    timeSpan.textContent = getCurrentTime();
+    
+    contentDiv.appendChild(messageContent);
+    contentDiv.appendChild(timeSpan);
+    
+    messageDiv.appendChild(avatarDiv);
+    messageDiv.appendChild(contentDiv);
+    
+    // Re-initialize Lucide icons for new elements
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+    
+    return messageDiv;
+}
+
+function formatBotMessage(message) {
+    // Convert markdown-like formatting to HTML
+    let formatted = message
+        // Bold text: **text** -> <strong>text</strong>
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        // Italic text: *text* -> <em>text</em>
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        // Line breaks: \n -> <br>
+        .replace(/\n/g, '<br>')
+        // Bullet points: *   -> •
+        .replace(/^\*   /gm, '• ')
+        // Nested bullet points: *   *   -> ◦
+        .replace(/^\*   \*   /gm, '◦ ')
+        // Triple nested: *   *   *   -> ▪
+        .replace(/^\*   \*   \*   /gm, '▪ ');
+    
+    return formatted;
+}
+
+function getCurrentTime() {
+    const now = new Date();
+    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function showTypingIndicator() {
+    if (chatbotTyping) {
+        chatbotTyping.style.display = 'flex';
+        scrollToBottom();
+    }
+}
+
+function hideTypingIndicator() {
+    if (chatbotTyping) {
+        chatbotTyping.style.display = 'none';
+    }
+}
+
+function scrollToBottom() {
+    if (chatbotMessagesContainer) {
+        chatbotMessagesContainer.scrollTop = chatbotMessagesContainer.scrollHeight;
+    }
+}
+
+function sendToWebhook(message) {
+    const payload = {
+        message: message,
+        chatId: chatId,
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        url: window.location.href
+    };
+    
+    console.log('📤 Sending to webhook:', webhookUrl);
+    console.log('📤 Payload:', payload);
+    
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        console.log('📥 Response status:', response.status);
+        console.log('📥 Response headers:', response.headers);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        // Try to get response as text first, then try JSON
+        return response.text().then(text => {
+            console.log('📥 Raw response:', text);
+            
+            // Try to parse as JSON
+            try {
+                const jsonData = JSON.parse(text);
+                console.log('📥 Parsed JSON:', jsonData);
+                return jsonData;
+            } catch (e) {
+                console.log('📥 Response is plain text:', text);
+                return text;
+            }
+        });
+    })
+    .then(data => {
+        hideTypingIndicator();
+        
+        // Handle different response formats
+        let botResponse = '';
+        if (typeof data === 'string') {
+            botResponse = data;
+        } else if (data.output) {
+            botResponse = data.output;
+        } else if (data.message) {
+            botResponse = data.message;
+        } else if (data.response) {
+            botResponse = data.response;
+        } else if (data.text) {
+            botResponse = data.text;
+        } else if (data.reply) {
+            botResponse = data.reply;
+        } else if (data.answer) {
+            botResponse = data.answer;
+        } else {
+            console.log('📥 Unknown response format:', data);
+            botResponse = "I received your message but couldn't process the response format. Please try again.";
+        }
+        
+        console.log('📥 Bot response:', botResponse);
+        addBotMessage(botResponse);
+    })
+    .catch(error => {
+        console.error('Webhook error:', error);
+        hideTypingIndicator();
+        addBotMessage("I'm having trouble connecting to my AI service right now. Please try again later or contact Karim directly at Karim00el@gmail.com.");
+    });
+}
+
+function loadChatHistory() {
+    try {
+        const saved = localStorage.getItem('chatbotHistory');
+        if (saved) {
+            chatbotHistory = JSON.parse(saved);
+            
+            // Re-render messages
+            if (chatbotHistory && chatbotHistory.length > 0) {
+                chatbotHistory.forEach(msg => {
+                    const messageElement = createMessageElement(msg.type, msg.message);
+                    chatbotMessagesContainer.appendChild(messageElement);
+                });
+            }
+        }
+    } catch (error) {
+        console.error('Error loading chat history:', error);
+        chatbotHistory = [];
+    }
+}
+
+function saveChatHistory() {
+    try {
+        localStorage.setItem('chatbotHistory', JSON.stringify(chatbotHistory));
+    } catch (error) {
+        console.error('Error saving chat history:', error);
+    }
+}
+
+function clearChatHistory() {
+    chatbotHistory = [];
+    if (chatbotMessagesContainer) {
+        chatbotMessagesContainer.innerHTML = '';
+    }
+    localStorage.removeItem('chatbotHistory');
+    addBotMessage("Chat history cleared. How can I help you today?");
+}
+
+// Function to set webhook URL (call this when you have your AI agent ready)
+function setChatbotWebhook(url) {
+    webhookUrl = url;
+    console.log('Chatbot webhook set to:', url);
+}
+
+// Function to show notification dot
+function showChatbotNotification() {
+    const notificationDot = document.querySelector('.chatbot-notification-dot');
+    if (notificationDot) {
+        notificationDot.style.display = 'block';
+    }
+}
+
+// Export chatbot functions for global use
+window.setChatbotWebhook = setChatbotWebhook;
+window.clearChatHistory = clearChatHistory;
+window.showChatbotNotification = showChatbotNotification;
+
 // ===== CONSOLE WELCOME MESSAGE =====
 console.log(`
 🚀 Karim El Otmani's Portfolio
@@ -955,6 +1418,7 @@ console.log(`
 💼 Data Specialist & Excel Master
 🌐 Built with modern web technologies
 ✅ EmailJS configured and ready!
+🤖 Chatbot ready! Use setChatbotWebhook(url) to connect your AI agent
 `);
 
 // ===== FLOATING CONTROLS POSITIONING =====
