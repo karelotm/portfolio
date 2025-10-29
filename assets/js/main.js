@@ -20,10 +20,10 @@ const translations = {
             description: 'I transform complex data into interactive dashboards and automated solutions that drive decision-making and optimize business processes.',
             discoverProjects: 'Discover My Projects',
             getInTouch: 'Get In Touch',
-            downloadResume: 'Download Resume'
+            previewResume: 'Preview Resume'
         },
         about: {
-            title: 'Hello, I\'m Karim.',
+            title: "Hello, I'm Karim.",
             description: 'Passionate about problem-solving, I specialize in creating tools in Excel and Power BI to make data clear, accessible, and actionable. My goal is to build effective solutions that eliminate manual tasks, ensure reliable reporting, and provide valuable insights for business growth. Having worked at Amazon and as a freelancer, I know how to adapt to various needs and deliver concrete results.'
         },
         skills: {
@@ -32,10 +32,111 @@ const translations = {
         },
         projects: {
             title: 'My Main Projects',
-            description: 'Here is a selection of projects that illustrate my expertise in dashboard creation, analysis, and automation.'
+            description: 'Here is a selection of projects that illustrate my expertise in dashboard creation, analysis, and automation.',
+            p1: {
+                category: 'Operational Analysis',
+                title: 'Daily Performance Dashboard | Amazon',
+                description: 'Created an automated dashboard to analyze team performance and detect outliers (missed calls, extended breaks). This tool allowed managers to get a comprehensive overview and drill down into details to make informed decisions.',
+                skills_title: 'Key Skills:',
+                skill1: 'Dashboard Building',
+                skill2: 'Automation',
+                skill3: 'KPI Analysis'
+            },
+            p2: {
+                category: 'Business Intelligence',
+                title: 'Sales & Conversion Tracking | Fitness Coach',
+                description: 'Developed a comprehensive dashboard for a coach selling programs on Instagram. The solution tracks conversion rates by closer, identifies top-performing programs, and analyzes trends to optimize sales strategy.',
+                skills_title: 'Key Skills:',
+                skill1: 'Interactive Dashboard',
+                skill2: 'Sales Analysis',
+                skill3: 'Visualization'
+            },
+            p3: {
+                category: 'Market Research',
+                title: 'Competitive Analysis | TikTok Shop Launch',
+                description: 'A scraping and analysis mission of a competitor\'s products (Lancôme) for a client launching their TikTok shop. I provided a detailed report with top-rated products and strategic proposals for their market entry.',
+                skills_title: 'Key Skills:',
+                skill1: 'Web Scraping',
+                skill2: 'Data Analysis',
+                skill3: 'Reporting'
+            },
+            p4: {
+                category: 'Open Source',
+                title: 'GitHub Portfolio | Data Projects',
+                description: 'A collection of data analysis projects, Jupyter notebooks, and research prototypes showcasing my expertise in Python, data visualization, and machine learning applications.',
+                skills_title: 'Key Repositories:',
+                skill1: 'Jupyter Notebooks',
+                skill2: 'Python',
+                skill3: 'Research'
+            },
+            modal1: {
+                title: 'Daily Performance Dashboard | Amazon',
+                description: 'This comprehensive dashboard was developed to monitor team performance metrics in real-time, providing managers with actionable insights to optimize operations and identify areas for improvement.',
+                features_title: 'Key Features:',
+                feature1: '• Real-time performance monitoring',
+                feature2: '• Automated outlier detection',
+                feature3: '• Interactive drill-down capabilities',
+                feature4: '• Customizable KPI tracking',
+                tech_title: 'Technologies Used:',
+                tech1: '• Excel with Power Query',
+                tech2: '• VBA for automation',
+                tech3: '• Advanced formulas',
+                tech4: '• Data visualization',
+                impact_title: 'Impact:',
+                impact_text: 'Reduced manual reporting time by 80% and improved decision-making speed by providing instant access to performance metrics.'
+            },
+            modal2: {
+                title: 'Sales & Conversion Tracking | Fitness Coach',
+                description: 'A comprehensive business intelligence solution designed to track sales performance, conversion rates, and customer engagement across multiple Instagram campaigns and programs.',
+                features_title: 'Key Features:',
+                feature1: '• Conversion rate tracking by closer',
+                feature2: '• Program performance analysis',
+                feature3: '• Revenue trend visualization',
+                feature4: '• ROI calculation tools',
+                tech_title: 'Technologies Used:',
+                tech1: '• Power BI',
+                tech2: '• Excel Power Pivot',
+                tech3: '• Data modeling',
+                tech4: '• Interactive dashboards',
+                impact_title: 'Impact:',
+                impact_text: 'Increased conversion rates by 35% through data-driven insights and optimized sales strategies based on performance analytics.'
+            },
+            modal3: {
+                title: 'Competitive Analysis | TikTok Shop Launch',
+                description: 'Comprehensive market research and competitive analysis project for a client launching their TikTok shop, focusing on Lancôme\'s product strategy and market positioning.',
+                features_title: 'Key Features:',
+                feature1: '• Automated web scraping',
+                feature2: '• Product performance analysis',
+                feature3: '• Market trend identification',
+                feature4: '• Strategic recommendations',
+                tech_title: 'Technologies Used:',
+                tech1: '• Python web scraping',
+                tech2: '• Data analysis tools',
+                tech3: '• Excel reporting',
+                tech4: '• Market research methods',
+                impact_title: 'Impact:',
+                impact_text: 'Provided actionable market insights that informed the client\'s TikTok shop strategy, leading to a successful launch with optimized product selection.'
+            },
+            modal4: {
+                title: 'GitHub Portfolio | Data Projects',
+                description: 'A comprehensive collection of data analysis projects, research prototypes, and Jupyter notebooks showcasing expertise in Python, data visualization, and machine learning applications.',
+                features_title: 'Key Repositories:',
+                feature1: 'Data analysis projects',
+                feature2: 'Python research prototype',
+                feature3: 'This portfolio website',
+                feature4: 'GitHub Pages portfolio',
+                tech_title: 'Technologies Used:',
+                tech1: '• Python & Jupyter Notebooks',
+                tech2: '• Data visualization libraries',
+                tech3: '• Machine learning frameworks',
+                tech4: '• Statistical analysis tools',
+                impact_title: 'Impact:',
+                impact_text: 'Demonstrates continuous learning and practical application of data science concepts through real-world projects and research initiatives.',
+                button: 'View All Repositories'
+            }
         },
         contact: {
-            title: 'Let\'s work together',
+            title: "Let's work together",
             description: 'I am available for freelance missions and open to opportunities. Feel free to contact me.',
             getInTouch: 'Get In Touch',
             remoteWork: 'Available for Remote Work',
@@ -65,7 +166,7 @@ const translations = {
             description: 'Je transforme des données complexes en tableaux de bord interactifs et solutions automatisées qui favorisent la prise de décision et optimisent les processus métier.',
             discoverProjects: 'Découvrir mes projets',
             getInTouch: 'Entrer en contact',
-            downloadResume: 'Télécharger CV'
+            previewResume: 'Aperçu CV'
         },
         about: {
             title: 'Bonjour, je suis Karim.',
@@ -77,10 +178,111 @@ const translations = {
         },
         projects: {
             title: 'Mes Principaux Projets',
-            description: 'Voici une sélection de projets qui illustrent mon expertise en création de tableaux de bord, analyse et automatisation.'
+            description: 'Voici une sélection de projets qui illustrent mon expertise en création de tableaux de bord, analyse et automatisation.',
+            p1: {
+                category: 'Analyse Opérationnelle',
+                title: 'Tableau de Bord de Performance | Amazon',
+                description: 'Création d\'un tableau de bord automatisé pour analyser la performance des équipes et détecter les anomalies (appels manqués, pauses prolongées). Cet outil a permis aux managers d\'avoir une vue d\'ensemble et de creuser les détails pour prendre des décisions éclairées.',
+                skills_title: 'Compétences Clés :',
+                skill1: 'Création de Tableau de Bord',
+                skill2: 'Automatisation',
+                skill3: 'Analyse KPI'
+            },
+            p2: {
+                category: 'Business Intelligence',
+                title: 'Suivi des Ventes & Conversions | Coach Sportif',
+                description: 'Développement d\'un tableau de bord complet pour un coach vendant des programmes sur Instagram. La solution suit les taux de conversion par closer, identifie les programmes les plus performants et analyse les tendances pour optimiser la stratégie de vente.',
+                skills_title: 'Compétences Clés :',
+                skill1: 'Tableau de Bord Interactif',
+                skill2: 'Analyse des Ventes',
+                skill3: 'Visualisation'
+            },
+            p3: {
+                category: 'Étude de Marché',
+                title: 'Analyse Concurrentielle | Lancement TikTok Shop',
+                description: 'Une mission de scraping et d\'analyse des produits d\'un concurrent (Lancôme) pour un client lançant sa boutique TikTok. J\'ai fourni un rapport détaillé avec les produits les mieux notés et des propositions stratégiques pour son entrée sur le marché.',
+                skills_title: 'Compétences Clés :',
+                skill1: 'Web Scraping',
+                skill2: 'Analyse de Données',
+                skill3: 'Rapport'
+            },
+            p4: {
+                category: 'Open Source',
+                title: 'Portfolio GitHub | Projets de Données',
+                description: 'Une collection de projets d\'analyse de données, de notebooks Jupyter et de prototypes de recherche mettant en valeur mon expertise en Python, visualisation de données et applications d\'apprentissage automatique.',
+                skills_title: 'Dépôts Clés :',
+                skill1: 'Notebooks Jupyter',
+                skill2: 'Python',
+                skill3: 'Recherche'
+            },
+            modal1: {
+                title: 'Tableau de Bord de Performance Quotidienne | Amazon',
+                description: 'Ce tableau de bord complet a été développé pour suivre les métriques de performance de l\'équipe en temps réel, fournissant aux managers des informations exploitables pour optimiser les opérations et identifier les domaines d\'amélioration.',
+                features_title: 'Fonctionnalités Clés :',
+                feature1: '• Suivi des performances en temps réel',
+                feature2: '• Détection automatisée des anomalies',
+                feature3: '• Capacités d\'exploration interactive',
+                feature4: '• Suivi des KPI personnalisable',
+                tech_title: 'Technologies Utilisées :',
+                tech1: '• Excel avec Power Query',
+                tech2: '• VBA pour l\'automatisation',
+                tech3: '• Formules avancées',
+                tech4: '• Visualisation de données',
+                impact_title: 'Impact :',
+                impact_text: 'Réduction du temps de reporting manuel de 80% et amélioration de la vitesse de prise de décision en fournissant un accès instantané aux métriques de performance.'
+            },
+            modal2: {
+                title: 'Suivi des Ventes & Conversions | Coach Sportif',
+                description: 'Une solution complète de business intelligence conçue pour suivre les performances des ventes, les taux de conversion et l\'engagement des clients sur plusieurs campagnes et programmes Instagram.',
+                features_title: 'Fonctionnalités Clés :',
+                feature1: '• Suivi du taux de conversion par closer',
+                feature2: '• Analyse des performances du programme',
+                feature3: '• Visualisation des tendances des revenus',
+                feature4: '• Outils de calcul du ROI',
+                tech_title: 'Technologies Utilisées :',
+                tech1: '• Power BI',
+                tech2: '• Excel Power Pivot',
+                tech3: '• Modélisation des données',
+                tech4: '• Tableaux de bord interactifs',
+                impact_title: 'Impact :',
+                impact_text: 'Augmentation des taux de conversion de 35% grâce à des informations basées sur les données et des stratégies de vente optimisées basées sur l\'analyse des performances.'
+            },
+            modal3: {
+                title: 'Analyse Concurrentielle | Lancement TikTok Shop',
+                description: 'Projet complet d\'étude de marché et d\'analyse concurrentielle pour un client lançant sa boutique TikTok, axé sur la stratégie produit et le positionnement marché de Lancôme.',
+                features_title: 'Fonctionnalités Clés :',
+                feature1: '• Web scraping automatisé',
+                feature2: '• Analyse des performances des produits',
+                feature3: '• Identification des tendances du marché',
+                feature4: '• Recommandations stratégiques',
+                tech_title: 'Technologies Utilisées :',
+                tech1: '• Web scraping en Python',
+                tech2: '• Outils d\'analyse de données',
+                tech3: '• Reporting sur Excel',
+                tech4: '• Méthodes d\'étude de marché',
+                impact_title: 'Impact :',
+                impact_text: 'Fourniture d\'informations exploitables sur le marché qui ont éclairé la stratégie de la boutique TikTok du client, menant à un lancement réussi avec une sélection de produits optimisée.'
+            },
+            modal4: {
+                title: 'Portfolio GitHub | Projets de Données',
+                description: 'Une collection complète de projets d\'analyse de données, de prototypes de recherche et de notebooks Jupyter mettant en valeur l\'expertise en Python, visualisation de données et applications d\'apprentissage automatique.',
+                features_title: 'Dépôts Clés :',
+                feature1: 'Projets d\'analyse de données',
+                feature2: 'Prototype de recherche en Python',
+                feature3: 'Ce site de portfolio',
+                feature4: 'Portfolio GitHub Pages',
+                tech_title: 'Technologies Utilisées :',
+                tech1: '• Python & Notebooks Jupyter',
+                tech2: '• Bibliothèques de visualisation de données',
+                tech3: '• Frameworks d\'apprentissage automatique',
+                tech4: '• Outils d\'analyse statistique',
+                impact_title: 'Impact :',
+                impact_text: 'Démontre un apprentissage continu et une application pratique des concepts de la science des données à travers des projets concrets et des initiatives de recherche.',
+                button: 'Voir Tous les Dépôts'
+            }
         },
         contact: {
-            title: 'Travaillons ensemble',
+            title: "Travaillons ensemble",
             description: 'Je suis disponible pour des missions freelance et ouvert aux opportunités. N\'hésitez pas à me contacter.',
             getInTouch: 'Entrer en contact',
             remoteWork: 'Disponible pour le travail à distance',
@@ -634,7 +836,7 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// ===== KEYBOARD NAVIGATION =====
+// ===== KEYBOARDNAVIGATION =====
 function handleKeyboardNavigation(e) {
     // Close modal with Escape key
     if (e.key === 'Escape') {

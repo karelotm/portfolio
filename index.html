@@ -44,8 +44,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css?v=11.0">
     
-    <!-- Favicon - Add your favicon.ico to the root directory when available -->
-    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 </head>
 <body class="bg-gray-50 text-gray-800 transition-colors duration-300" id="body">
     <!-- Google Tag Manager (noscript) -->
@@ -118,7 +118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="#projects" class="btn-primary" data-translate="hero.discoverProjects">Discover My Projects</a>
                         <a href="#contact" class="btn-secondary" data-translate="hero.getInTouch">Get In Touch</a>
-                        <a href="assets/documents/resume.html" download="Karim_El_Otmani_Resume.html" class="btn-secondary" data-translate="hero.downloadResume">Download Resume</a>
+                        <a href="assets/documents/resume.html" target="_blank" class="btn-secondary" data-translate="hero.previewResume">Preview Resume</a>
                     </div>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="500" class="mt-16">
@@ -239,17 +239,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div data-aos="fade-up" data-aos-delay="100" class="project-card bg-white rounded-xl overflow-hidden shadow-lg" onclick="openModal('amazonModal')" role="button" tabindex="0" aria-label="View Amazon Dashboard project details">
                     <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Amazon+Dashboard" alt="Performance Dashboard for Amazon" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="text-sm text-blue-600 font-semibold">Operational Analysis</span>
-                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Daily Performance Dashboard | Amazon</h3>
-                        <p class="text-gray-600 mb-4">
+                        <span class="text-sm text-blue-600 font-semibold" data-translate="projects.p1.category">Operational Analysis</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3" data-translate="projects.p1.title">Daily Performance Dashboard | Amazon</h3>
+                        <p class="text-gray-600 mb-4" data-translate="projects.p1.description">
                             Created an automated dashboard to analyze team performance and detect outliers (missed calls, extended breaks). This tool allowed managers to get a comprehensive overview and drill down into details to make informed decisions.
                         </p>
                         <div class="pt-4 border-t border-gray-200">
-                            <h4 class="font-semibold mb-2">Key Skills:</h4>
+                            <h4 class="font-semibold mb-2" data-translate="projects.p1.skills_title">Key Skills:</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Dashboard Building</span>
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Automation</span>
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">KPI Analysis</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p1.skill1">Dashboard Building</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p1.skill2">Automation</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p1.skill3">KPI Analysis</span>
                             </div>
                         </div>
                     </div>
@@ -259,17 +259,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div data-aos="fade-up" data-aos-delay="200" class="project-card bg-white rounded-xl overflow-hidden shadow-lg" onclick="openModal('fitnessModal')" role="button" tabindex="0" aria-label="View Fitness Coach project details">
                     <img src="https://placehold.co/600x400/34D399/FFFFFF?text=Sales+Dashboard" alt="Sales dashboard for a fitness coach" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="text-sm text-green-600 font-semibold">Business Intelligence</span>
-                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Sales & Conversion Tracking | Fitness Coach</h3>
-                        <p class="text-gray-600 mb-4">
+                        <span class="text-sm text-green-600 font-semibold" data-translate="projects.p2.category">Business Intelligence</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3" data-translate="projects.p2.title">Sales & Conversion Tracking | Fitness Coach</h3>
+                        <p class="text-gray-600 mb-4" data-translate="projects.p2.description">
                             Developed a comprehensive dashboard for a coach selling programs on Instagram. The solution tracks conversion rates by closer, identifies top-performing programs, and analyzes trends to optimize sales strategy.
                         </p>
                         <div class="pt-4 border-t border-gray-200">
-                            <h4 class="font-semibold mb-2">Key Skills:</h4>
+                            <h4 class="font-semibold mb-2" data-translate="projects.p2.skills_title">Key Skills:</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Interactive Dashboard</span>
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Sales Analysis</span>
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Visualization</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p2.skill1">Interactive Dashboard</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p2.skill2">Sales Analysis</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p2.skill3">Visualization</span>
                             </div>
                         </div>
                     </div>
@@ -279,17 +279,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div data-aos="fade-up" data-aos-delay="300" class="project-card bg-white rounded-xl overflow-hidden shadow-lg" onclick="openModal('tiktokModal')" role="button" tabindex="0" aria-label="View TikTok Shop project details">
                     <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Market+Analysis" alt="Market analysis for TikTok Shop" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="text-sm text-purple-600 font-semibold">Market Research</span>
-                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Competitive Analysis | TikTok Shop Launch</h3>
-                        <p class="text-gray-600 mb-4">
+                        <span class="text-sm text-purple-600 font-semibold" data-translate="projects.p3.category">Market Research</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3" data-translate="projects.p3.title">Competitive Analysis | TikTok Shop Launch</h3>
+                        <p class="text-gray-600 mb-4" data-translate="projects.p3.description">
                             A scraping and analysis mission of a competitor's products (Lancôme) for a client launching their TikTok shop. I provided a detailed report with top-rated products and strategic proposals for their market entry.
                         </p>
                         <div class="pt-4 border-t border-gray-200">
-                            <h4 class="font-semibold mb-2">Key Skills:</h4>
+                            <h4 class="font-semibold mb-2" data-translate="projects.p3.skills_title">Key Skills:</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Web Scraping</span>
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Data Analysis</span>
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Reporting</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p3.skill1">Web Scraping</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p3.skill2">Data Analysis</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p3.skill3">Reporting</span>
                             </div>
                         </div>
                     </div>
@@ -299,17 +299,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div data-aos="fade-up" data-aos-delay="400" class="project-card bg-white rounded-xl overflow-hidden shadow-lg" onclick="openModal('githubModal')" role="button" tabindex="0" aria-label="View GitHub repositories">
                     <img src="https://placehold.co/600x400/24292E/FFFFFF?text=GitHub+Repositories" alt="GitHub repositories showcase" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="text-sm text-gray-600 font-semibold">Open Source</span>
-                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">GitHub Portfolio | Data Projects</h3>
-                        <p class="text-gray-600 mb-4">
+                        <span class="text-sm text-gray-600 font-semibold" data-translate="projects.p4.category">Open Source</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3" data-translate="projects.p4.title">GitHub Portfolio | Data Projects</h3>
+                        <p class="text-gray-600 mb-4" data-translate="projects.p4.description">
                             A collection of data analysis projects, Jupyter notebooks, and research prototypes showcasing my expertise in Python, data visualization, and machine learning applications.
                         </p>
                         <div class="pt-4 border-t border-gray-200">
-                            <h4 class="font-semibold mb-2">Key Repositories:</h4>
+                            <h4 class="font-semibold mb-2" data-translate="projects.p4.skills_title">Key Repositories:</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Jupyter Notebooks</span>
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Python</span>
-                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">Research</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p4.skill1">Jupyter Notebooks</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p4.skill2">Python</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p4.skill3">Research</span>
                             </div>
                         </div>
                     </div>
@@ -404,32 +404,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="close" onclick="closeModal('amazonModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/1E40AF/FFFFFF?text=Amazon+Dashboard+Details" alt="Amazon Dashboard" class="w-full h-64 object-cover">
             <div class="p-8">
-                <h2 id="amazonModalTitle" class="text-3xl font-bold text-gray-900 mb-4">Daily Performance Dashboard | Amazon</h2>
-                <p class="text-gray-600 mb-6">
+                <h2 id="amazonModalTitle" class="text-3xl font-bold text-gray-900 mb-4" data-translate="projects.modal1.title">Daily Performance Dashboard | Amazon</h2>
+                <p class="text-gray-600 mb-6" data-translate="projects.modal1.description">
                     This comprehensive dashboard was developed to monitor team performance metrics in real-time, providing managers with actionable insights to optimize operations and identify areas for improvement.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Key Features:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal1.features_title">Key Features:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• Real-time performance monitoring</li>
-                            <li>• Automated outlier detection</li>
-                            <li>• Interactive drill-down capabilities</li>
-                            <li>• Customizable KPI tracking</li>
+                            <li data-translate="projects.modal1.feature1">• Real-time performance monitoring</li>
+                            <li data-translate="projects.modal1.feature2">• Automated outlier detection</li>
+                            <li data-translate="projects.modal1.feature3">• Interactive drill-down capabilities</li>
+                            <li data-translate="projects.modal1.feature4">• Customizable KPI tracking</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal1.tech_title">Technologies Used:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• Excel with Power Query</li>
-                            <li>• VBA for automation</li>
-                            <li>• Advanced formulas</li>
-                            <li>• Data visualization</li>
+                            <li data-translate="projects.modal1.tech1">• Excel with Power Query</li>
+                            <li data-translate="projects.modal1.tech2">• VBA for automation</li>
+                            <li data-translate="projects.modal1.tech3">• Advanced formulas</li>
+                            <li data-translate="projects.modal1.tech4">• Data visualization</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-blue-50 p-4 rounded-lg">
-                    <p class="text-blue-800"><strong>Impact:</strong> Reduced manual reporting time by 80% and improved decision-making speed by providing instant access to performance metrics.</p>
+                    <p class="text-blue-800"><strong data-translate="projects.modal1.impact_title">Impact:</strong> <span data-translate="projects.modal1.impact_text">Reduced manual reporting time by 80% and improved decision-making speed by providing instant access to performance metrics.</span></p>
                 </div>
             </div>
         </div>
@@ -441,32 +441,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="close" onclick="closeModal('fitnessModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/34D399/FFFFFF?text=Fitness+Sales+Dashboard" alt="Fitness Sales Dashboard" class="w-full h-64 object-cover">
             <div class="p-8">
-                <h2 id="fitnessModalTitle" class="text-3xl font-bold text-gray-900 mb-4">Sales & Conversion Tracking | Fitness Coach</h2>
-                <p class="text-gray-600 mb-6">
+                <h2 id="fitnessModalTitle" class="text-3xl font-bold text-gray-900 mb-4" data-translate="projects.modal2.title">Sales & Conversion Tracking | Fitness Coach</h2>
+                <p class="text-gray-600 mb-6" data-translate="projects.modal2.description">
                     A comprehensive business intelligence solution designed to track sales performance, conversion rates, and customer engagement across multiple Instagram campaigns and programs.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Key Features:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal2.features_title">Key Features:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• Conversion rate tracking by closer</li>
-                            <li>• Program performance analysis</li>
-                            <li>• Revenue trend visualization</li>
-                            <li>• ROI calculation tools</li>
+                            <li data-translate="projects.modal2.feature1">• Conversion rate tracking by closer</li>
+                            <li data-translate="projects.modal2.feature2">• Program performance analysis</li>
+                            <li data-translate="projects.modal2.feature3">• Revenue trend visualization</li>
+                            <li data-translate="projects.modal2.feature4">• ROI calculation tools</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal2.tech_title">Technologies Used:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• Power BI</li>
-                            <li>• Excel Power Pivot</li>
-                            <li>• Data modeling</li>
-                            <li>• Interactive dashboards</li>
+                            <li data-translate="projects.modal2.tech1">• Power BI</li>
+                            <li data-translate="projects.modal2.tech2">• Excel Power Pivot</li>
+                            <li data-translate="projects.modal2.tech3">• Data modeling</li>
+                            <li data-translate="projects.modal2.tech4">• Interactive dashboards</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-green-50 p-4 rounded-lg">
-                    <p class="text-green-800"><strong>Impact:</strong> Increased conversion rates by 35% through data-driven insights and optimized sales strategies based on performance analytics.</p>
+                    <p class="text-green-800"><strong data-translate="projects.modal2.impact_title">Impact:</strong> <span data-translate="projects.modal2.impact_text">Increased conversion rates by 35% through data-driven insights and optimized sales strategies based on performance analytics.</span></p>
                 </div>
             </div>
         </div>
@@ -478,32 +478,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="close" onclick="closeModal('tiktokModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/8B5CF6/FFFFFF?text=TikTok+Market+Analysis" alt="TikTok Market Analysis" class="w-full h-64 object-cover">
             <div class="p-8">
-                <h2 id="tiktokModalTitle" class="text-3xl font-bold text-gray-900 mb-4">Competitive Analysis | TikTok Shop Launch</h2>
-                <p class="text-gray-600 mb-6">
+                <h2 id="tiktokModalTitle" class="text-3xl font-bold text-gray-900 mb-4" data-translate="projects.modal3.title">Competitive Analysis | TikTok Shop Launch</h2>
+                <p class="text-gray-600 mb-6" data-translate="projects.modal3.description">
                     Comprehensive market research and competitive analysis project for a client launching their TikTok shop, focusing on Lancôme's product strategy and market positioning.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Key Features:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal3.features_title">Key Features:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• Automated web scraping</li>
-                            <li>• Product performance analysis</li>
-                            <li>• Market trend identification</li>
-                            <li>• Strategic recommendations</li>
+                            <li data-translate="projects.modal3.feature1">• Automated web scraping</li>
+                            <li data-translate="projects.modal3.feature2">• Product performance analysis</li>
+                            <li data-translate="projects.modal3.feature3">• Market trend identification</li>
+                            <li data-translate="projects.modal3.feature4">• Strategic recommendations</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal3.tech_title">Technologies Used:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• Python web scraping</li>
-                            <li>• Data analysis tools</li>
-                            <li>• Excel reporting</li>
-                            <li>• Market research methods</li>
+                            <li data-translate="projects.modal3.tech1">• Python web scraping</li>
+                            <li data-translate="projects.modal3.tech2">• Data analysis tools</li>
+                            <li data-translate="projects.modal3.tech3">• Excel reporting</li>
+                            <li data-translate="projects.modal3.tech4">• Market research methods</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-purple-50 p-4 rounded-lg">
-                    <p class="text-purple-800"><strong>Impact:</strong> Provided actionable market insights that informed the client's TikTok shop strategy, leading to a successful launch with optimized product selection.</p>
+                    <p class="text-purple-800"><strong data-translate="projects.modal3.impact_title">Impact:</strong> <span data-translate="projects.modal3.impact_text">Provided actionable market insights that informed the client's TikTok shop strategy, leading to a successful launch with optimized product selection.</span></p>
                 </div>
             </div>
         </div>
@@ -515,35 +515,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="close" onclick="closeModal('githubModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/24292E/FFFFFF?text=GitHub+Portfolio" alt="GitHub Portfolio" class="w-full h-64 object-cover">
             <div class="p-8">
-                <h2 id="githubModalTitle" class="text-3xl font-bold text-gray-900 mb-4">GitHub Portfolio | Data Projects</h2>
-                <p class="text-gray-600 mb-6">
+                <h2 id="githubModalTitle" class="text-3xl font-bold text-gray-900 mb-4" data-translate="projects.modal4.title">GitHub Portfolio | Data Projects</h2>
+                <p class="text-gray-600 mb-6" data-translate="projects.modal4.description">
                     A comprehensive collection of data analysis projects, research prototypes, and Jupyter notebooks showcasing expertise in Python, data visualization, and machine learning applications.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Key Repositories:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal4.features_title">Key Repositories:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• <a href="https://github.com/karelotm/First-Jupyter-notebook" target="_blank" class="text-blue-600 hover:underline">First-Jupyter-notebook</a> - Data analysis projects</li>
-                            <li>• <a href="https://github.com/karelotm/phd-prototype" target="_blank" class="text-blue-600 hover:underline">phd-prototype</a> - Python research prototype</li>
-                            <li>• <a href="https://github.com/karelotm/portfolio" target="_blank" class="text-blue-600 hover:underline">portfolio</a> - This portfolio website</li>
-                            <li>• <a href="https://github.com/karelotm/github.io" target="_blank" class="text-blue-600 hover:underline">github.io</a> - GitHub Pages portfolio</li>
+                            <li>• <a href="https://github.com/karelotm/First-Jupyter-notebook" target="_blank" class="text-blue-600 hover:underline">First-Jupyter-notebook</a> - <span data-translate="projects.modal4.feature1">Data analysis projects</span></li>
+                            <li>• <a href="https://github.com/karelotm/phd-prototype" target="_blank" class="text-blue-600 hover:underline">phd-prototype</a> - <span data-translate="projects.modal4.feature2">Python research prototype</span></li>
+                            <li>• <a href="https://github.com/karelotm/portfolio" target="_blank" class="text-blue-600 hover:underline">portfolio</a> - <span data-translate="projects.modal4.feature3">This portfolio website</span></li>
+                            <li>• <a href="https://github.com/karelotm/github.io" target="_blank" class="text-blue-600 hover:underline">github.io</a> - <span data-translate="projects.modal4.feature4">GitHub Pages portfolio</span></li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal4.tech_title">Technologies Used:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• Python & Jupyter Notebooks</li>
-                            <li>• Data visualization libraries</li>
-                            <li>• Machine learning frameworks</li>
-                            <li>• Statistical analysis tools</li>
+                            <li data-translate="projects.modal4.tech1">• Python & Jupyter Notebooks</li>
+                            <li data-translate="projects.modal4.tech2">• Data visualization libraries</li>
+                            <li data-translate="projects.modal4.tech3">• Machine learning frameworks</li>
+                            <li data-translate="projects.modal4.tech4">• Statistical analysis tools</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-gray-800"><strong>Impact:</strong> Demonstrates continuous learning and practical application of data science concepts through real-world projects and research initiatives.</p>
+                    <p class="text-gray-800"><strong data-translate="projects.modal4.impact_title">Impact:</strong> <span data-translate="projects.modal4.impact_text">Demonstrates continuous learning and practical application of data science concepts through real-world projects and research initiatives.</span></p>
                 </div>
                 <div class="mt-6 text-center">
-                    <a href="https://github.com/karelotm" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block">
+                    <a href="https://github.com/karelotm" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block" data-translate="projects.modal4.button"> 
                         View All Repositories
                     </a>
                 </div>
