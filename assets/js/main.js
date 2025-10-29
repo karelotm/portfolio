@@ -1027,7 +1027,7 @@ function initializeChatbot() {
     
     // Show welcome message if no previous messages
     if (chatbotHistory.length === 0) {
-        addBotMessage("Hello! I'm your AI assistant. How can I help you today?");
+        addBotMessage("Hello! I'm Karim's personal assistant. I'm here to help you with any questions regarding Karim's expertise, projects, and services. How can I assist you today?");
     }
 }
 
