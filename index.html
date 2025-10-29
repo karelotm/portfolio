@@ -756,32 +756,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             
             <div class="p-8">
-                <h2 id="docuSignModalTitle" class="text-3xl font-bold text-gray-900 mb-4">Document Signature & Notification Workflow</h2>
-                <p class="text-gray-600 mb-6">
+                <h2 id="docuSignModalTitle" class="text-3xl font-bold text-gray-900 mb-4" data-translate="projects.modal5.title">Document Signature & Notification Workflow</h2>
+                <p class="text-gray-600 mb-6" data-translate="projects.modal5.description">
                     This workflow automates the process of sending documents for signature and notifying stakeholders, triggered directly from a Notion database. The system streamlines the final step of client or contract processes by automatically generating and sending DocuSign envelopes when task statuses are updated.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">How it Works:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal5.how_title">How it Works:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• <strong>Trigger:</strong> Notion database item update</li>
-                            <li>• <strong>Filter:</strong> Validates conditions (email exists, status = "Ready for Signature")</li>
-                            <li>• <strong>Action:</strong> Sends DocuSign envelope using template</li>
-                            <li>• <strong>Notification:</strong> WhatsApp alert to stakeholders</li>
+                            <li data-translate="projects.modal5.how1">• <strong>Trigger:</strong> Notion database item update</li>
+                            <li data-translate="projects.modal5.how2">• <strong>Filter:</strong> Validates conditions (email exists, status = "Ready for Signature")</li>
+                            <li data-translate="projects.modal5.how3">• <strong>Action:</strong> Sends DocuSign envelope using template</li>
+                            <li data-translate="projects.modal5.how4">• <strong>Notification:</strong> WhatsApp alert to stakeholders</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Tools Used:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal5.tools_title">Tools Used:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• n8n (Workflow Automation)</li>
-                            <li>• Notion (Database & Triggers)</li>
-                            <li>• DocuSign (Document Signing)</li>
-                            <li>• WhatsApp (Notifications)</li>
+                            <li data-translate="projects.modal5.tools1">• n8n (Workflow Automation)</li>
+                            <li data-translate="projects.modal5.tools2">• Notion (Database & Triggers)</li>
+                            <li data-translate="projects.modal5.tools3">• DocuSign (Document Signing)</li>
+                            <li data-translate="projects.modal5.tools4">• WhatsApp (Notifications)</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-gray-800"><strong>Impact:</strong> Eliminates manual document processing, reduces errors, and ensures timely contract execution with automatic stakeholder notifications.</p>
+                    <p class="text-gray-800"><strong data-translate="projects.modal5.impact_title">Impact:</strong> <span data-translate="projects.modal5.impact_text">Eliminates manual document processing, reduces errors, and ensures timely contract execution with automatic stakeholder notifications.</span></p>
                 </div>
             </div>
         </div>
@@ -824,32 +824,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             
             <div class="p-8">
-                <h2 id="ragModalTitle" class="text-3xl font-bold text-gray-900 mb-4">RAG AI Chatbot with Automated Knowledge Base</h2>
-                <p class="text-gray-600 mb-6">
+                <h2 id="ragModalTitle" class="text-3xl font-bold text-gray-900 mb-4" data-translate="projects.modal6.title">RAG AI Chatbot with Automated Knowledge Base</h2>
+                <p class="text-gray-600 mb-6" data-translate="projects.modal6.description">
                     A sophisticated two-part system that builds a complete Retrieval-Augmented Generation (RAG) chatbot. The system can "learn" from documents you provide and answer questions based on that specific knowledge, automatically synchronized from Google Drive.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Workflow A - Knowledge Base Pipeline:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal6.workflow_a_title">Workflow A - Knowledge Base Pipeline:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• <strong>Trigger:</strong> Google Drive file changes</li>
-                            <li>• <strong>Processing:</strong> Text extraction and chunking</li>
-                            <li>• <strong>Vectorizing:</strong> Google Gemini embeddings</li>
-                            <li>• <strong>Storage:</strong> Supabase vector database</li>
+                            <li data-translate="projects.modal6.workflow_a1">• <strong>Trigger:</strong> Google Drive file changes</li>
+                            <li data-translate="projects.modal6.workflow_a2">• <strong>Processing:</strong> Text extraction and chunking</li>
+                            <li data-translate="projects.modal6.workflow_a3">• <strong>Vectorizing:</strong> Google Gemini embeddings</li>
+                            <li data-translate="projects.modal6.workflow_a4">• <strong>Storage:</strong> Supabase vector database</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Workflow B - RAG Chatbot:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal6.workflow_b_title">Workflow B - RAG Chatbot:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• <strong>Retrieval:</strong> Search relevant documents</li>
-                            <li>• <strong>Generation:</strong> Google Gemini responses</li>
-                            <li>• <strong>Memory:</strong> Postgres chat history</li>
-                            <li>• <strong>Accuracy:</strong> Context-based answers only</li>
+                            <li data-translate="projects.modal6.workflow_b1">• <strong>Retrieval:</strong> Search relevant documents</li>
+                            <li data-translate="projects.modal6.workflow_b2">• <strong>Generation:</strong> Google Gemini responses</li>
+                            <li data-translate="projects.modal6.workflow_b3">• <strong>Memory:</strong> Postgres chat history</li>
+                            <li data-translate="projects.modal6.workflow_b4">• <strong>Accuracy:</strong> Context-based answers only</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-gray-800"><strong>Impact:</strong> Prevents AI hallucination by forcing responses based on specific documents, creating an intelligent assistant that learns from your knowledge base.</p>
+                    <p class="text-gray-800"><strong data-translate="projects.modal6.impact_title">Impact:</strong> <span data-translate="projects.modal6.impact_text">Prevents AI hallucination by forcing responses based on specific documents, creating an intelligent assistant that learns from your knowledge base.</span></p>
                 </div>
             </div>
         </div>
@@ -892,32 +892,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             
             <div class="p-8">
-                <h2 id="leadModalTitle" class="text-3xl font-bold text-gray-900 mb-4">AI-Powered Lead Processing & Routing</h2>
-                <p class="text-gray-600 mb-6">
+                <h2 id="leadModalTitle" class="text-3xl font-bold text-gray-900 mb-4" data-translate="projects.modal7.title">AI-Powered Lead Processing & Routing</h2>
+                <p class="text-gray-600 mb-6" data-translate="projects.modal7.description">
                     An intelligent sorting system for new sales leads that captures leads from web forms, uses AI to analyze them, and automatically routes information to the correct systems and people based on priority and content analysis.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Process Flow:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal7.features_title">Key Features:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• <strong>Capture:</strong> Tally form webhook trigger</li>
-                            <li>• <strong>AI Analysis:</strong> Google Gemini lead processing</li>
-                            <li>• <strong>Enrichment:</strong> Priority scoring and categorization</li>
-                            <li>• <strong>Distribution:</strong> Multi-channel routing</li>
+                            <li data-translate="projects.modal7.features1">• Lead capture from Tally forms</li>
+                            <li data-translate="projects.modal7.features2">• AI-powered lead scoring and categorization</li>
+                            <li data-translate="projects.modal7.features3">• Automatic routing to sales team</li>
+                            <li data-translate="projects.modal7.features4">• CRM integration with Notion</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Integration Points:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal7.tools_title">Tools Used:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• <strong>Zapier:</strong> External system integration</li>
-                            <li>• <strong>Notion:</strong> CRM database logging</li>
-                            <li>• <strong>Slack:</strong> Conditional team alerts</li>
-                            <li>• <strong>Priority Routing:</strong> Hot/Warm/Cold leads</li>
+                            <li data-translate="projects.modal7.tools1">• n8n (Workflow Orchestration)</li>
+                            <li data-translate="projects.modal7.tools2">• Google Gemini (AI Analysis)</li>
+                            <li data-translate="projects.modal7.tools3">• Slack (Team Notifications)</li>
+                            <li data-translate="projects.modal7.tools4">• Notion (CRM Database)</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-gray-800"><strong>Impact:</strong> Automates lead qualification and ensures high-priority leads reach the sales team immediately while maintaining comprehensive lead tracking in the CRM system.</p>
+                    <p class="text-gray-800"><strong data-translate="projects.modal7.impact_title">Impact:</strong> <span data-translate="projects.modal7.impact_text">Ensures no lead goes unnoticed, prioritizes high-value opportunities, and creates an efficient sales pipeline with automated lead management.</span></p>
                 </div>
             </div>
         </div>
@@ -960,32 +960,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             
             <div class="p-8">
-                <h2 id="tinyLLMModalTitle" class="text-3xl font-bold text-gray-900 mb-4">Tiny-LLM Learning - Personalized AI Tutor</h2>
-                <p class="text-gray-600 mb-6">
+                <h2 id="tinyLLMModalTitle" class="text-3xl font-bold text-gray-900 mb-4" data-translate="projects.modal8.title">Tiny-LLM Learning - Personalized AI Tutor</h2>
+                <p class="text-gray-600 mb-6" data-translate="projects.modal8.description">
                     A comprehensive web-based personalized learning platform designed to help students study, track progress, and interact with an AI-powered tutor. The application provides a central dashboard that acts as the student's "home base" for all their learning activities, powered by a custom fine-tuned tiny-Language Model for specialized and efficient AI interactions.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Key Features:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal8.features_title">Key Features:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• <strong>AI-Powered Tutoring:</strong> Custom tiny-LLM for personalized learning</li>
-                            <li>• <strong>Progress Tracking:</strong> Comprehensive learning analytics</li>
-                            <li>• <strong>Central Dashboard:</strong> Student's learning command center</li>
-                            <li>• <strong>Interactive Learning:</strong> Dynamic study sessions</li>
+                            <li data-translate="projects.modal8.features1">• Personalized learning dashboard</li>
+                            <li data-translate="projects.modal8.features2">• AI-powered tutoring and assistance</li>
+                            <li data-translate="projects.modal8.features3">• Progress tracking and analytics</li>
+                            <li data-translate="projects.modal8.features4">• Study session management</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                        <h3 class="font-semibold text-gray-900 mb-2" data-translate="projects.modal8.tech_title">Technologies Used:</h3>
                         <ul class="text-gray-600 space-y-1">
-                            <li>• <strong>Custom Tiny-LLM:</strong> Fine-tuned language model</li>
-                            <li>• <strong>Web Technologies:</strong> Modern frontend framework</li>
-                            <li>• <strong>AI Integration:</strong> Machine learning pipeline</li>
-                            <li>• <strong>Educational Design:</strong> User-centered learning experience</li>
+                            <li data-translate="projects.modal8.tech1">• Custom fine-tuned LLM</li>
+                            <li data-translate="projects.modal8.tech2">• Web development frameworks</li>
+                            <li data-translate="projects.modal8.tech3">• Real-time data processing</li>
+                            <li data-translate="projects.modal8.tech4">• Interactive learning modules</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-gray-800"><strong>Impact:</strong> Revolutionizes personalized education by providing students with an intelligent AI tutor that adapts to individual learning styles and progress, making education more accessible and effective.</p>
+                    <p class="text-gray-800"><strong data-translate="projects.modal8.impact_title">Impact:</strong> <span data-translate="projects.modal8.impact_text">Provides students with personalized AI tutoring that adapts to their learning style, improving engagement and educational outcomes through technology.</span></p>
                 </div>
                 <div class="mt-6 text-center">
                     <a href="https://tinyllm.karelotm.dev" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block">
@@ -1002,6 +1002,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Custom JavaScript -->
-    <script src="assets/js/main.js?v=6.3"></script>
+    <script src="assets/js/main.js?v=6.4"></script>
 </body>
 </html>
