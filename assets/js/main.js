@@ -9,6 +9,7 @@ let isChatbotFullscreen = false;
 let chatbotHistory = [];
 let webhookUrl = 'https://n8n.karelotm.dev/webhook/e985d15f-b2f6-456d-be15-97e0b1544a40/chat'; // n8n webhook URL
 let chatId = generateChatId(); // Generate unique chat ID for this session
+let githubRepos = []; // Store fetched GitHub repositories
 
 // ===== CHAT ID GENERATION =====
 function generateChatId() {
@@ -29,6 +30,67 @@ function generateChatId() {
     
     console.log('🆕 Generated new chat ID:', newChatId);
     return newChatId;
+}
+
+// ===== GITHUB API INTEGRATION =====
+async function fetchGitHubRepositories() {
+    try {
+        console.log('🔄 Fetching GitHub repositories...');
+        const response = await fetch('https://api.github.com/users/karelotm/repos?sort=updated&per_page=10');
+        
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.status}`);
+        }
+        
+        const repos = await response.json();
+        githubRepos = repos.filter(repo => !repo.fork && repo.name !== 'karelotm.github.io'); // Filter out forks and the GitHub Pages repo
+        
+        console.log('✅ Fetched GitHub repositories:', githubRepos.length);
+        updateGitHubProjectCard();
+        
+    } catch (error) {
+        console.error('❌ Error fetching GitHub repositories:', error);
+        // Keep the static content if API fails
+    }
+}
+
+function updateGitHubProjectCard() {
+    const githubCard = document.querySelector('[onclick*="githubModal"]');
+    if (!githubCard || githubRepos.length === 0) return;
+    
+    // Update the repository list in the modal
+    const modal = document.getElementById('githubModal');
+    if (!modal) return;
+    
+    const repoList = modal.querySelector('ul');
+    if (!repoList) return;
+    
+    // Clear existing list items
+    repoList.innerHTML = '';
+    
+    // Add current repositories
+    githubRepos.slice(0, 6).forEach(repo => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `• <a href="${repo.html_url}" target="_blank" class="text-blue-600 hover:underline">${repo.name}</a> - <span>${repo.description || 'Repository'}</span>`;
+        repoList.appendChild(listItem);
+    });
+    
+    // Update repository count
+    const title = modal.querySelector('h2');
+    if (title) {
+        title.textContent = `GitHub Portfolio | ${githubRepos.length} Active Repositories`;
+    }
+    
+    console.log('✅ Updated GitHub project card with current repositories');
+}
+
+// ===== AUTO-UPDATE GITHUB REPOS =====
+function enableGitHubAutoUpdate() {
+    // Fetch repositories on page load
+    fetchGitHubRepositories();
+    
+    // Update every 24 hours (optional)
+    setInterval(fetchGitHubRepositories, 24 * 60 * 60 * 1000);
 }
 
 // ===== TRANSLATIONS =====
@@ -453,6 +515,9 @@ function initializeApp() {
     
     // Initialize chatbot
     initializeChatbot();
+    
+    // Initialize GitHub auto-update
+    enableGitHubAutoUpdate();
 }
 
 // ===== EVENT LISTENERS =====
