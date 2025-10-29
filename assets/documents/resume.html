@@ -3,8 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karim El Otmani - Resume</title>
+    <title>Karim El Otmani - CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        /* A4-like width. max-w-3xl is 768px. */
+        .container {
+            max-width: 800px;
+        }
+        .section-title {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: 0.05em;
+            color: #111827;
+        }
+        .job-title {
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .date-range {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        li {
+           padding-left: 1.25rem;
+           position: relative;
+        }
+        li::before {
+           content: '•';
+           position: absolute;
+           left: 0;
+           color: #4b5563;
+        }
+        /* Hide scrollbar for the body */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* --- NEW DOWNLOAD BUTTON STYLES (from your example) --- */
         .download-button {
             display: inline-block;
             padding: 10px 20px;
@@ -13,299 +61,250 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            position: absolute;
+            position: absolute; /* Changed to fixed to stay on screen */
             top: 20px;
             right: 20px;
             transition: background-color 0.3s ease;
+            z-index: 100; /* Ensure it's on top */
         }
         .download-button:hover {
             background-color: #2563eb;
         }
-    </style>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #3b82f6;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        .name {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #1e40af;
-            margin: 0;
-        }
-        .title {
-            font-size: 1.2em;
-            color: #64748b;
-            margin: 10px 0;
-        }
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-        .contact-item {
-            color: #64748b;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .section-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #1e40af;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-        .experience-item, .project-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-left: 3px solid #3b82f6;
-            background: #f8fafc;
-        }
-        .job-title {
-            font-weight: bold;
-            color: #1e40af;
-            font-size: 1.1em;
-        }
-        .company {
-            color: #64748b;
-            font-style: italic;
-        }
-        .date {
-            color: #64748b;
-            font-size: 0.9em;
-        }
-        .description {
-            margin-top: 10px;
-            text-align: justify;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .skill-category {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 8px;
-        }
-        .skill-category h4 {
-            margin: 0 0 10px 0;
-            color: #1e40af;
-        }
-        .skill-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .skill-list li {
-            padding: 2px 0;
-            color: #64748b;
-        }
-        .education-item {
-            margin-bottom: 15px;
-        }
-        .degree {
-            font-weight: bold;
-            color: #1e40af;
-        }
-        .institution {
-            color: #64748b;
-            font-style: italic;
-        }
-        .languages {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .language-item {
-            background: #f1f5f9;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .language {
-            font-weight: bold;
-            color: #1e40af;
-        }
-        .proficiency {
-            color: #64748b;
-            font-size: 0.9em;
-        }
+        /* --- END OF DOWNLOAD BUTTON STYLES --- */
+
+
+        /* --- NEW PRINT-SPECIFIC STYLES --- */
         @media print {
             body {
-                margin: 0;
-                padding: 15px;
+                background-color: #ffffff; /* Force white background */
+                font-family: 'Inter', sans-serif;
             }
-            .experience-item, .project-item {
-                break-inside: avoid;
+            .container {
+                box-shadow: none; /* Remove shadow for printing */
+                margin: 0;
+                max-width: 100%;
+                width: 100%;
+                border: none;
+                padding: 0;
+            }
+            .section-title {
+                color: #000000 !important; /* Force black text */
+            }
+            p, h1, h2, h3, h4, li, a {
+                color: #000000 !important; /* Force black text */
+            }
+            .bg-gray-100 {
+                background-color: #f3f4f6 !important; /* Keep light bg for skills box */
+            }
+            a {
+                text-decoration: none; /* Remove underlines for clean print */
+            }
+            /* Hide the body scrollbar rule from print view */
+            body::-webkit-scrollbar {
+                display: none;
+            }
+            body {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            
+            /* --- HIDE DOWNLOAD BUTTON ON PRINT --- */
+            .download-button {
+                display: none;
             }
         }
+        /* --- END OF PRINT STYLES --- */
     </style>
 </head>
-<body>
-    <a href="resume.html" download="Karim_El_Otmani_Resume.html" class="download-button">Download</a>
-    <div class="header">
-        <h1 class="name">Karim El Otmani</h1>
-        <p class="title">Data Specialist & Excel Master</p>
-        <div class="contact-info">
-            <span class="contact-item">📧 Karim00el@gmail.com</span>
-            <span class="contact-item">💼 LinkedIn: linkedin.com/in/karim-el-otmani-304739160/</span>
-            <span class="contact-item">🐙 GitHub: github.com/karelotm</span>
-            <span class="contact-item">🌍 Available for Remote Work</span>
-        </div>
-    </div>
+<body class="p-4 md:p-8">
+    
+    <!-- --- ADDED DOWNLOAD BUTTON --- -->
+    <a href="#" onclick="downloadPDF(); return false;" class="download-button">Download as PDF</a>
 
-    <div class="section">
-        <h2 class="section-title">Professional Summary</h2>
-        <p class="description">
-            Passionate data specialist with expertise in Excel, Power BI, and business intelligence solutions. 
-            Proven track record of creating automated dashboards and data analysis tools that drive decision-making 
-            and optimize business processes. Experience working at Amazon and as a freelancer, delivering concrete 
-            results across various industries.
-        </p>
-    </div>
+    <!-- Single-column container, centered, with A4-like proportions -->
+    <div class="container mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-8 p-10 md:p-12">
 
-    <div class="section">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h4>Data Analysis</h4>
-                <ul class="skill-list">
-                    <li>Advanced Excel (95%)</li>
-                    <li>Power BI (90%)</li>
-                    <li>Power Query & Power Pivot (92%)</li>
-                    <li>Data Visualization (87%)</li>
+        <!-- HEADER: Name, Title, Contact Info -->
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-gray-800">Karim El Otmani</h1>
+            <h2 class="text-xl font-semibold text-gray-600 mt-2">Customer Experience & Data Specialist</h2>
+            
+            <section class="mt-4 text-sm text-gray-700 flex flex-wrap justify-center gap-x-6 gap-y-2">
+                <p>Karim00el@gmail.com</p>
+                <p>06 64 15 15 60</p>
+                <p>Résidence badiaa 2, Villa n5, Harhoura</p>
+                <p><a href="https://karelotm.dev/" target="_blank" class="text-blue-600 hover:underline">karelotm.dev</a></p>
+            </section>
+        </header>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <main>
+            <section class="mb-8">
+                <h3 class="section-title">PROFESSIONAL SUMMARY</h3>
+                <p class="text-gray-700">
+                    Data-driven Customer Experience Specialist with 4+ years of experience at Amazon and Neo Financial. Proven ability to leverage Python, SQL, and Power BI to analyze customer data, automate reporting, and provide actionable insights that improve operational efficiency and customer satisfaction.
+                </p>
+            </section>
+
+            <!-- TECHNICAL SKILLS -->
+            <section class="mb-8">
+                <h3 class="section-title">TECHNICAL SKILLS</h3>
+                <p class="text-sm text-gray-800 bg-gray-100 p-3 rounded-md">
+                    SQL, Python, Power BI, Tableau, HTML, PHP, Numpy, Pandas, Matplotlib, Seaborn, Scikit-learn, Microsoft Office Suite
+                </p>
+            </section>
+            
+            <!-- PROFESSIONAL EXPERIENCE -->
+            <section class="mb-8">
+                <h3 class="section-title">PROFESSIONAL EXPERIENCE</h3>
+                
+                <div class="mb-6">
+                    <p class="date-range">MARCH 2025 - PRESENT</p>
+                    <h4 class="job-title">Customer Experience Specialist - Neo Financial</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Maintained a 95% customer satisfaction (CSAT) score while handling 50+ daily inquiries regarding account balances, credit, and new product applications.</li>
+                        <li>Managed 30+ daily support cases for credit card modifications, resolving 90% on the first contact.</li>
+                        <li>Provide primary support via phone, utilizing email to confirm transactions, gather missing information, and send guides to customers.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <p class="date-range">OCTOBER 2024 - SEPTEMBER 2025</p>
+                    <h4 class="job-title">LMIR Specialist - Amazon</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Managed ~15 high-priority incidents per week, coordinating with 3 internal teams and local authorities to achieve a 98% resolution within the first 24 hours.</li>
+                        <li>Provided support and solutions to drivers, customers, and community members affected by incidents.</li>
+                        <li>Coordinated responses with local authorities and internal teams during live events.</li>
+                        <li>Identified and escalated potential crisis situations to management.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <p class="date-range">AUGUST 2024 - OCTOBER 2024</p>
+                    <h4 class="job-title">Resolution Specialist - Amazon</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Acted as a subject matter expert supporting customer service for French and Belgian markets.</li>
+                        <li>Managed communication between associates and leadership using ticketing systems.</li>
+                        <li>Identified a recurring payment-error trend; my analysis and proposed solution led to a fix that reduced related customer contacts by 15%.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <p class="date-range">OCTOBER 2022 - AUGUST 2024</p>
+                    <h4 class="job-title">Admin Specialist - Amazon</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Developed and automated 3 new Power BI dashboards to track operational KPIs, reducing manual reporting time by 10 hours per week and improving management's access to real-time data.</li>
+                        <li>Engineered a data collection process using Python to consolidate data from 4 internal tools, improving data accuracy by 25% for business analysis.</li>
+                        <li>Monitored real-time performance metrics to ensure operational efficiency.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <p class="date-range">AUGUST 2020 - JULY 2022</p>
+                    <h4 class="job-title">Assistant Store Manager - PIRI PIRI / YUZO (CANADA)</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Assisted in daily store operations, including opening and closing procedures, cash handling, and sales reporting.</li>
+                        <li>Implemented a new inventory tracking system that reduced food waste by 10% and saved an estimated $1,500 per quarter.</li>
+                        <li>Supervised and trained store staff, managed scheduling, and ensured high standards of customer service.</li>
+                        <li>Addressed customer inquiries and resolved complaints to maintain customer satisfaction and loyalty.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FREELANCE & PERSONAL PROJECTS -->
+            <section class="mb-8">
+                <h3 class="section-title">FREELANCE & PERSONAL PROJECTS</h3>
+                
+                <div class="mb-6">
+                    <h4 class="job-title">Personalized AI Learning Tutor (Tiny-LLM)</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Designed and prototyped an AI-powered tutor for a personalized educational experience by fine-tuning and implementing a tiny Language Model (tiny-LLM).</li>
+                        <li>Developed a backend to manage user interactions and serve model responses.</li>
+                        <li><strong>Technologies:</strong> Python, Scikit-learn, Pandas, Numpy, Flask, MongoDB.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="job-title">E-commerce Data Scraping (TikTok Shop)</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Developed a web scraping tool to extract product information, pricing, and review data from TikTok Shop for market analysis and trend identification.</li>
+                        <li>Cleaned and structured the collected data for analysis and visualization.</li>
+                        <li><strong>Technologies:</strong> Python, BeautifulSoup, Pandas.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="job-title">Interactive Business Intelligence Dashboard</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Created a comprehensive, interactive dashboard in Power BI to analyze sales data, track Key Performance Indicators (KPIs), and provide actionable insights for business stakeholders.</li>
+                        <li>Connected to multiple data sources, performed data modeling, and utilized DAX for complex calculations.</li>
+                        <li><strong>Technologies:</strong> Power BI, SQL, DAX.</li>
+                    </ul>
+                </div>
+
+                <div classimg-fluid" src"">
+                    <h4 class="job-title">Business Process Automation</h4>
+                    <ul class="mt-2 text-sm text-gray-700 list-inside space-y-1">
+                        <li>Designed and deployed automated workflows using no-code platforms to streamline repetitive business processes, such as data entry, approvals, and notifications.</li>
+                        <li>Integrated various applications (e.g., Google Sheets, email, CRM) to create seamless, end-to-end automations.</li>
+                        <li><strong>Technologies:</strong> No-Code/Low-Code Platforms (e.g., Make, Zapier, n8n), Python, APIs.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- CERTIFICATIONS -->
+            <section class="mb-8">
+                <h3 class="section-title">CERTIFICATIONS</h3>
+                <ul class="text-sm text-gray-700 list-inside space-y-1">
+                    <li>SAP Technology Consultant 2024</li>
+                    <li>IBM Data Scientist Certificat 2024</li>
+                    <li>Google Business Intelligence Certificat 2024</li>
+                    <li>Google Data Analytics Certificat 2023</li>
+                    <li>Microsoft web developer certification, 2017</li>
                 </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Automation & Development</h4>
-                <ul class="skill-list">
-                    <li>VBA & Macros (95%)</li>
-                    <li>Process Automation (85%)</li>
-                    <li>Python (Basic)</li>
-                    <li>Web Scraping</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Business Intelligence</h4>
-                <ul class="skill-list">
-                    <li>Dashboard Creation</li>
-                    <li>KPI Analysis</li>
-                    <li>Report Automation</li>
-                    <li>Data Modeling</li>
-                </ul>
-            </div>
-        </div>
+            </section>
+            
+            <!-- EDUCATIONAL BACKGROUND -->
+            <section class="mb-8">
+                <h3 class="section-title">EDUCATIONAL BACKGROUND</h3>
+                <div class="mb-4">
+                    <p class="text-sm font-bold text-gray-800">UIR</p>
+                    <p class="text-sm text-gray-600">Executive Master, Data Science for Finance</p>
+                    <p class="text-xs text-gray-500">2023 - 2025</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-sm font-bold text-gray-800">UNIVERSITY IBN TOUFAIL- ENSA</p>
+                    <p class="text-sm text-gray-600">Specialized university degree, Business Intelligence Statistics and Big Data</p>
+                    <p class="text-xs text-gray-500">2023 - 2024</p>
+                </div>
+                 <div class="mb-4">
+                    <p class="text-sm font-bold text-gray-800">INTED- WES'SUP</p>
+                    <p class="text-sm text-gray-600">Bachelor's degree in SME Management</p>
+                    <p class="text-xs text-gray-500">2018</p>
+                </div>
+                <div>
+                    <p class="text-sm font-bold text-gray-800">ISTA TEMARA</p>
+                    <p class="text-sm text-gray-600">Specialized Technician Diploma in IT Development</p>
+                    <p class="text-xs text-gray-500">2016 - 2018</p>
+                </div>
+            </section>
+            
+            <!-- LANGUAGES -->
+            <section>
+                <h3 class="section-title">LANGUAGES</h3>
+                <p class="text-sm text-gray-700">Arabic (Native)</p>
+                <p class="text-sm text-gray-700">French (Fluent)</p>
+                <p class="text-sm text-gray-700">English (Professional)</p>
+            </section>
+        </main>
     </div>
 
-    <div class="section">
-        <h2 class="section-title">Professional Experience</h2>
-        
-        <div class="experience-item">
-            <div class="job-title">Data Analyst & Dashboard Specialist</div>
-            <div class="company">Amazon</div>
-            <div class="date">2022 - 2023</div>
-            <div class="description">
-                • Created automated performance dashboards for team management and outlier detection<br>
-                • Developed Excel-based tools that reduced manual reporting time by 80%<br>
-                • Implemented real-time KPI tracking systems for operational efficiency<br>
-                • Collaborated with managers to optimize data-driven decision making processes
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="job-title">Freelance Data Specialist</div>
-            <div class="company">Various Clients</div>
-            <div class="date">2021 - Present</div>
-            <div class="description">
-                • Built comprehensive sales tracking dashboards for fitness coaches and entrepreneurs<br>
-                • Conducted market research and competitive analysis for e-commerce clients<br>
-                • Created automated reporting solutions for small to medium businesses<br>
-                • Delivered data visualization projects that improved client decision-making by 35%
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Key Projects</h2>
-        
-        <div class="project-item">
-            <div class="job-title">Daily Performance Dashboard | Amazon</div>
-            <div class="description">
-                Developed an automated dashboard system to monitor team performance metrics, detect outliers 
-                (missed calls, extended breaks), and provide managers with comprehensive insights for 
-                informed decision-making. Technologies: Excel, Power Query, VBA.
-            </div>
-        </div>
-
-        <div class="project-item">
-            <div class="job-title">Sales & Conversion Tracking | Fitness Coach</div>
-            <div class="description">
-                Created a comprehensive business intelligence solution for Instagram-based program sales, 
-                tracking conversion rates by closer, identifying top-performing programs, and analyzing 
-                trends to optimize sales strategy. Technologies: Power BI, Excel Power Pivot.
-            </div>
-        </div>
-
-        <div class="project-item">
-            <div class="job-title">Competitive Analysis | TikTok Shop Launch</div>
-            <div class="description">
-                Conducted market research and competitive analysis for a client launching their TikTok shop, 
-                focusing on competitor product strategies and market positioning. Provided detailed reports 
-                with strategic recommendations. Technologies: Python, Web Scraping, Data Analysis.
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Education</h2>
-        <div class="education-item">
-            <div class="degree">Bachelor's Degree in Data Science</div>
-            <div class="institution">University Name</div>
-            <div class="date">2018 - 2022</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Languages</h2>
-        <div class="languages">
-            <div class="language-item">
-                <div class="language">English</div>
-                <div class="proficiency">Fluent</div>
-            </div>
-            <div class="language-item">
-                <div class="language">French</div>
-                <div class="proficiency">Native</div>
-            </div>
-            <div class="language-item">
-                <div class="language">Arabic</div>
-                <div class="proficiency">Native</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Certifications</h2>
-        <ul>
-            <li>Microsoft Excel Expert Certification</li>
-            <li>Power BI Data Analyst Associate</li>
-            <li>Google Analytics Certified</li>
-        </ul>
-    </div>
+    <!-- --- ADDED SCRIPT FOR PDF DOWNLOAD --- -->
+    <script>
+        function downloadPDF() {
+            // This triggers the browser's print functionality
+            window.print();
+        }
+    </script>
 </body>
 </html>
