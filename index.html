@@ -42,7 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=12.3">
+    <link rel="stylesheet" href="assets/css/styles.css?v=12.6">
     
     <!-- Favicon -->
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
@@ -427,6 +427,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 8: Tiny-LLM Learning -->
+                <div data-aos="fade-up" data-aos-delay="800" class="project-card bg-white rounded-xl overflow-hidden shadow-lg" onclick="openModal('tinyLLMModal')" role="button" tabindex="0" aria-label="View Tiny-LLM Learning project details">
+                    <img src="assets/images/TinyLLm.png" alt="Tiny-LLM Learning - Personalized AI Tutor" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-indigo-600 font-semibold" data-translate="projects.p8.category">AI Education Platform</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3" data-translate="projects.p8.title">Tiny-LLM Learning - Personalized AI Tutor</h3>
+                        <p class="text-gray-600 mb-4" data-translate="projects.p8.description">
+                            A web-based personalized learning platform that helps students study, track progress, and interact with an AI-powered tutor. Features a central dashboard as the student's "home base" for all learning activities, powered by a custom fine-tuned tiny-Language Model.
+                        </p>
+                        <div class="pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold mb-2" data-translate="projects.p8.skills_title">Key Skills:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p8.skill1">AI/ML Integration</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p8.skill2">Web Development</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p8.skill3">Educational Technology</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -514,6 +534,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Amazon Modal -->
     <div id="amazonModal" class="modal" role="dialog" aria-labelledby="amazonModalTitle" aria-hidden="true">
         <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
             <span class="close" onclick="closeModal('amazonModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/1E40AF/FFFFFF?text=Amazon+Dashboard+Details" alt="Amazon Dashboard" class="w-full h-64 object-cover">
             <div class="p-8">
@@ -551,6 +579,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Fitness Coach Modal -->
     <div id="fitnessModal" class="modal" role="dialog" aria-labelledby="fitnessModalTitle" aria-hidden="true">
         <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
             <span class="close" onclick="closeModal('fitnessModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/34D399/FFFFFF?text=Fitness+Sales+Dashboard" alt="Fitness Sales Dashboard" class="w-full h-64 object-cover">
             <div class="p-8">
@@ -588,6 +624,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- TikTok Shop Modal -->
     <div id="tiktokModal" class="modal" role="dialog" aria-labelledby="tiktokModalTitle" aria-hidden="true">
         <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
             <span class="close" onclick="closeModal('tiktokModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/8B5CF6/FFFFFF?text=TikTok+Market+Analysis" alt="TikTok Market Analysis" class="w-full h-64 object-cover">
             <div class="p-8">
@@ -625,6 +669,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- GitHub Repositories Modal -->
     <div id="githubModal" class="modal" role="dialog" aria-labelledby="githubModalTitle" aria-hidden="true">
         <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
             <span class="close" onclick="closeModal('githubModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/24292E/FFFFFF?text=GitHub+Portfolio" alt="GitHub Portfolio" class="w-full h-64 object-cover">
             <div class="p-8">
@@ -670,8 +722,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- DocuSign Modal -->
     <div id="docuSignModal" class="modal" role="dialog" aria-labelledby="docuSignModalTitle" aria-hidden="true">
         <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
             <span class="close" onclick="closeModal('docuSignModal')" aria-label="Close modal">&times;</span>
-            <img src="assets/images/DocuSign.png" alt="Document Signature Automation" class="w-full h-64 object-cover">
+            
+            <!-- Image Container with Navigation -->
+            <div class="relative w-full h-64 bg-gray-100 overflow-hidden">
+                <img id="docuSignImage" src="assets/images/DocuSign.png" alt="Document Signature Automation" class="w-full h-full object-cover transition-opacity duration-300">
+                
+                <!-- Navigation Arrows -->
+                <button id="prevImageDocuSign" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="changeImage('docuSign', -1)">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button id="nextImageDocuSign" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="changeImage('docuSign', 1)">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- Fullscreen Button -->
+                <button id="fullscreenImageDocuSign" class="absolute top-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="openImageFullscreen('docuSign')">
+                    <i data-lucide="maximize" class="w-4 h-4"></i>
+                </button>
+                
+                <!-- Image Counter -->
+                <div class="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+                    <span id="imageCounterDocuSign">1 / 1</span>
+                </div>
+            </div>
+            
             <div class="p-8">
                 <h2 id="docuSignModalTitle" class="text-3xl font-bold text-gray-900 mb-4">Document Signature & Notification Workflow</h2>
                 <p class="text-gray-600 mb-6">
@@ -707,8 +790,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- RAG Chatbot Modal -->
     <div id="ragModal" class="modal" role="dialog" aria-labelledby="ragModalTitle" aria-hidden="true">
         <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
             <span class="close" onclick="closeModal('ragModal')" aria-label="Close modal">&times;</span>
-            <img src="assets/images/n8n_chatBot_Rag.png" alt="RAG AI Chatbot" class="w-full h-64 object-cover">
+            
+            <!-- Image Container with Navigation -->
+            <div class="relative w-full h-64 bg-gray-100 overflow-hidden">
+                <img id="ragImage" src="assets/images/n8n_chatBot_Rag.png" alt="RAG AI Chatbot" class="w-full h-full object-cover transition-opacity duration-300">
+                
+                <!-- Navigation Arrows -->
+                <button id="prevImageRag" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="changeImage('rag', -1)">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button id="nextImageRag" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="changeImage('rag', 1)">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- Fullscreen Button -->
+                <button id="fullscreenImageRag" class="absolute top-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="openImageFullscreen('rag')">
+                    <i data-lucide="maximize" class="w-4 h-4"></i>
+                </button>
+                
+                <!-- Image Counter -->
+                <div class="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+                    <span id="imageCounterRag">1 / 1</span>
+                </div>
+            </div>
+            
             <div class="p-8">
                 <h2 id="ragModalTitle" class="text-3xl font-bold text-gray-900 mb-4">RAG AI Chatbot with Automated Knowledge Base</h2>
                 <p class="text-gray-600 mb-6">
@@ -744,8 +858,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Lead Processing Modal -->
     <div id="leadModal" class="modal" role="dialog" aria-labelledby="leadModalTitle" aria-hidden="true">
         <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
             <span class="close" onclick="closeModal('leadModal')" aria-label="Close modal">&times;</span>
-            <img src="assets/images/New_Lead.png" alt="AI-Powered Lead Processing" class="w-full h-64 object-cover">
+            
+            <!-- Image Container with Navigation -->
+            <div class="relative w-full h-64 bg-gray-100 overflow-hidden">
+                <img id="leadImage" src="assets/images/New_Lead.png" alt="AI-Powered Lead Processing" class="w-full h-full object-cover transition-opacity duration-300">
+                
+                <!-- Navigation Arrows -->
+                <button id="prevImageLead" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="changeImage('lead', -1)">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button id="nextImageLead" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="changeImage('lead', 1)">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- Fullscreen Button -->
+                <button id="fullscreenImageLead" class="absolute top-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="openImageFullscreen('lead')">
+                    <i data-lucide="maximize" class="w-4 h-4"></i>
+                </button>
+                
+                <!-- Image Counter -->
+                <div class="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+                    <span id="imageCounterLead">1 / 1</span>
+                </div>
+            </div>
+            
             <div class="p-8">
                 <h2 id="leadModalTitle" class="text-3xl font-bold text-gray-900 mb-4">AI-Powered Lead Processing & Routing</h2>
                 <p class="text-gray-600 mb-6">
@@ -778,12 +923,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
+    <!-- Tiny-LLM Learning Modal with Image Carousel -->
+    <div id="tinyLLMModal" class="modal" role="dialog" aria-labelledby="tinyLLMModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <span class="close" onclick="closeModal('tinyLLMModal')" aria-label="Close modal">&times;</span>
+            
+            <!-- Image Carousel Container -->
+            <div class="relative w-full h-64 bg-gray-100 overflow-hidden">
+                <img id="tinyLLMImage" src="assets/images/TinyLLm.png" alt="Tiny-LLM Learning Platform" class="w-full h-full object-cover transition-opacity duration-300">
+                
+                <!-- Navigation Arrows -->
+                <button id="prevImage" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="changeImage('tinyLLM', -1)">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button id="nextImage" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="changeImage('tinyLLM', 1)">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- Fullscreen Button -->
+                <button id="fullscreenImage" class="absolute top-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all" onclick="openImageFullscreen('tinyLLM')">
+                    <i data-lucide="maximize" class="w-4 h-4"></i>
+                </button>
+                
+                <!-- Image Counter -->
+                <div class="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+                    <span id="imageCounter">1 / 1</span>
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <h2 id="tinyLLMModalTitle" class="text-3xl font-bold text-gray-900 mb-4">Tiny-LLM Learning - Personalized AI Tutor</h2>
+                <p class="text-gray-600 mb-6">
+                    A comprehensive web-based personalized learning platform designed to help students study, track progress, and interact with an AI-powered tutor. The application provides a central dashboard that acts as the student's "home base" for all their learning activities, powered by a custom fine-tuned tiny-Language Model for specialized and efficient AI interactions.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Key Features:</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• <strong>AI-Powered Tutoring:</strong> Custom tiny-LLM for personalized learning</li>
+                            <li>• <strong>Progress Tracking:</strong> Comprehensive learning analytics</li>
+                            <li>• <strong>Central Dashboard:</strong> Student's learning command center</li>
+                            <li>• <strong>Interactive Learning:</strong> Dynamic study sessions</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• <strong>Custom Tiny-LLM:</strong> Fine-tuned language model</li>
+                            <li>• <strong>Web Technologies:</strong> Modern frontend framework</li>
+                            <li>• <strong>AI Integration:</strong> Machine learning pipeline</li>
+                            <li>• <strong>Educational Design:</strong> User-centered learning experience</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-gray-800"><strong>Impact:</strong> Revolutionizes personalized education by providing students with an intelligent AI tutor that adapts to individual learning styles and progress, making education more accessible and effective.</p>
+                </div>
+                <div class="mt-6 text-center">
+                    <a href="https://tinyllm.karelotm.dev" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block">
+                        🚀 View Live Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- External JavaScript Libraries -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Custom JavaScript -->
-    <script src="assets/js/main.js?v=5.3"></script>
+    <script src="assets/js/main.js?v=5.9"></script>
 </body>
 </html>

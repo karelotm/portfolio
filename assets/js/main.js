@@ -93,6 +93,233 @@ function enableGitHubAutoUpdate() {
     setInterval(fetchGitHubRepositories, 24 * 60 * 60 * 1000);
 }
 
+    // ===== IMAGE CAROUSEL SYSTEM =====
+    const projectImages = {
+        docuSign: [
+            'assets/images/DocuSign.png'
+            // Add more images here when you have them
+        ],
+        rag: [
+            'assets/images/n8n_chatBot_Rag.png'
+            // Add more images here when you have them
+        ],
+        lead: [
+            'assets/images/New_Lead.png'
+            // Add more images here when you have them
+        ],
+        tinyLLM: [
+            'assets/images/TinyLLm.png'
+            // Add more images here when you have them
+            // 'assets/images/TinyLLM-dashboard.png',
+            // 'assets/images/TinyLLM-chat.png',
+            // 'assets/images/TinyLLM-progress.png'
+        ]
+    };
+
+    const currentImageIndex = {
+        docuSign: 0,
+        rag: 0,
+        lead: 0,
+        tinyLLM: 0
+    };
+
+function changeImage(project, direction) {
+    const images = projectImages[project];
+    if (!images || images.length <= 1) return;
+    
+    currentImageIndex[project] += direction;
+    
+    // Loop around
+    if (currentImageIndex[project] >= images.length) {
+        currentImageIndex[project] = 0;
+    } else if (currentImageIndex[project] < 0) {
+        currentImageIndex[project] = images.length - 1;
+    }
+    
+    // Update image - handle different project naming conventions
+    const imageElement = document.getElementById(`${project}Image`);
+    const counterElement = document.getElementById(`imageCounter${project.charAt(0).toUpperCase() + project.slice(1)}`);
+    
+    if (imageElement) {
+        imageElement.style.opacity = '0';
+        setTimeout(() => {
+            imageElement.src = images[currentImageIndex[project]];
+            imageElement.style.opacity = '1';
+        }, 150);
+    }
+    
+    if (counterElement) {
+        counterElement.textContent = `${currentImageIndex[project] + 1} / ${images.length}`;
+    }
+    
+    // Update navigation buttons visibility
+    updateNavigationButtons(project);
+}
+
+function updateNavigationButtons(project) {
+    const images = projectImages[project];
+    const prevBtn = document.getElementById(`prevImage${project.charAt(0).toUpperCase() + project.slice(1)}`);
+    const nextBtn = document.getElementById(`nextImage${project.charAt(0).toUpperCase() + project.slice(1)}`);
+    
+    // Only hide image navigation buttons if there's only one image
+    // Modal navigation buttons should always be visible
+    if (images && images.length <= 1) {
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+    } else if (images && images.length > 1) {
+        if (prevBtn) prevBtn.style.display = 'block';
+        if (nextBtn) nextBtn.style.display = 'block';
+    }
+    
+    // Ensure modal navigation buttons are always visible
+    const modalPrevBtn = document.querySelector('.modal-prev');
+    const modalNextBtn = document.querySelector('.modal-next');
+    if (modalPrevBtn) modalPrevBtn.style.display = 'flex';
+    if (modalNextBtn) modalNextBtn.style.display = 'flex';
+}
+
+function openImageFullscreen(project) {
+    const images = projectImages[project];
+    const currentIndex = currentImageIndex[project];
+    const currentImage = images[currentIndex];
+    
+        // Create fullscreen overlay
+        const fullscreenOverlay = document.createElement('div');
+        fullscreenOverlay.id = 'imageFullscreenOverlay';
+        fullscreenOverlay.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center';
+        fullscreenOverlay.style.zIndex = '99999'; // Higher than modal z-index
+        fullscreenOverlay.onclick = closeImageFullscreen;
+    
+    // Create image container
+    const imageContainer = document.createElement('div');
+    imageContainer.className = 'relative max-w-7xl max-h-full p-4';
+    imageContainer.onclick = (e) => e.stopPropagation();
+    
+    // Create image
+    const fullscreenImage = document.createElement('img');
+    fullscreenImage.src = currentImage;
+    fullscreenImage.alt = 'Fullscreen project image';
+    fullscreenImage.className = 'max-w-full max-h-full object-contain';
+    
+    // Create close button
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+    closeBtn.className = 'absolute top-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all';
+    closeBtn.onclick = closeImageFullscreen;
+    
+    // Create navigation buttons
+    const prevBtn = document.createElement('button');
+    prevBtn.innerHTML = '<i data-lucide="chevron-left" class="w-8 h-8"></i>';
+    prevBtn.className = 'absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all';
+    prevBtn.onclick = (e) => {
+        e.stopPropagation();
+        changeFullscreenImage(project, -1);
+    };
+    
+    const nextBtn = document.createElement('button');
+    nextBtn.innerHTML = '<i data-lucide="chevron-right" class="w-8 h-8"></i>';
+    nextBtn.className = 'absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all';
+    nextBtn.onclick = (e) => {
+        e.stopPropagation();
+        changeFullscreenImage(project, 1);
+    };
+    
+    // Create image counter
+    const counter = document.createElement('div');
+    counter.className = 'absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full text-lg';
+    counter.innerHTML = `<span id="fullscreenCounter">${currentIndex + 1} / ${images.length}</span>`;
+    
+    // Assemble the fullscreen view
+    imageContainer.appendChild(fullscreenImage);
+    imageContainer.appendChild(closeBtn);
+    imageContainer.appendChild(prevBtn);
+    imageContainer.appendChild(nextBtn);
+    imageContainer.appendChild(counter);
+    fullscreenOverlay.appendChild(imageContainer);
+    
+    // Add to page
+    document.body.appendChild(fullscreenOverlay);
+    document.body.style.overflow = 'hidden';
+    
+    // Re-initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+    
+    // Store reference for navigation
+    fullscreenOverlay.project = project;
+    fullscreenOverlay.imageElement = fullscreenImage;
+    fullscreenOverlay.counterElement = counter.querySelector('#fullscreenCounter');
+}
+
+function changeFullscreenImage(project, direction) {
+    const images = projectImages[project];
+    currentImageIndex[project] += direction;
+    
+    // Loop around
+    if (currentImageIndex[project] >= images.length) {
+        currentImageIndex[project] = 0;
+    } else if (currentImageIndex[project] < 0) {
+        currentImageIndex[project] = images.length - 1;
+    }
+    
+    // Update fullscreen image
+    const overlay = document.getElementById('imageFullscreenOverlay');
+    if (overlay && overlay.imageElement && overlay.counterElement) {
+        overlay.imageElement.style.opacity = '0';
+        setTimeout(() => {
+            overlay.imageElement.src = images[currentImageIndex[project]];
+            overlay.imageElement.style.opacity = '1';
+            overlay.counterElement.textContent = `${currentIndex[project] + 1} / ${images.length}`;
+        }, 150);
+    }
+    
+        // Update modal image too
+        const modalImage = document.getElementById(`${project}Image`);
+        const modalCounter = document.getElementById(`imageCounter${project.charAt(0).toUpperCase() + project.slice(1)}`);
+        if (modalImage) {
+            modalImage.src = images[currentImageIndex[project]];
+        }
+        if (modalCounter) {
+            modalCounter.textContent = `${currentImageIndex[project] + 1} / ${images.length}`;
+        }
+}
+
+function closeImageFullscreen() {
+    const overlay = document.getElementById('imageFullscreenOverlay');
+    if (overlay) {
+        overlay.remove();
+        document.body.style.overflow = 'auto';
+    }
+}
+
+    // Keyboard navigation for fullscreen and modals
+    document.addEventListener('keydown', (e) => {
+        const overlay = document.getElementById('imageFullscreenOverlay');
+        if (overlay) {
+            // Fullscreen image navigation
+            if (e.key === 'Escape') {
+                closeImageFullscreen();
+            } else if (e.key === 'ArrowLeft') {
+                const project = overlay.project;
+                changeFullscreenImage(project, -1);
+            } else if (e.key === 'ArrowRight') {
+                const project = overlay.project;
+                changeFullscreenImage(project, 1);
+            }
+        } else {
+            // Modal navigation
+            const openModal = document.querySelector('.modal[style*="block"]');
+            if (openModal) {
+                if (e.key === 'ArrowLeft') {
+                    navigateModal('prev');
+                } else if (e.key === 'ArrowRight') {
+                    navigateModal('next');
+                }
+            }
+        }
+    });
+
 // ===== TRANSLATIONS =====
 const translations = {
     en: {
@@ -248,6 +475,15 @@ const translations = {
                 skill1: 'Lead Scoring',
                 skill2: 'CRM Integration',
                 skill3: 'Conditional Logic'
+            },
+            p8: {
+                category: 'AI Education Platform',
+                title: 'Tiny-LLM Learning - Personalized AI Tutor',
+                description: 'A web-based personalized learning platform that helps students study, track progress, and interact with an AI-powered tutor. Features a central dashboard as the student\'s "home base" for all learning activities, powered by a custom fine-tuned tiny-Language Model.',
+                skills_title: 'Key Skills:',
+                skill1: 'AI/ML Integration',
+                skill2: 'Web Development',
+                skill3: 'Educational Technology'
             }
         },
         contact: {
@@ -421,6 +657,15 @@ const translations = {
                 skill1: 'Scoring de Prospects',
                 skill2: 'Intégration CRM',
                 skill3: 'Logique Conditionnelle'
+            },
+            p8: {
+                category: 'Plateforme d\'Éducation IA',
+                title: 'Tiny-LLM Learning - Tuteur IA Personnalisé',
+                description: 'Une plateforme d\'apprentissage personnalisée basée sur le web qui aide les étudiants à étudier, suivre leurs progrès et interagir avec un tuteur alimenté par l\'IA. Comprend un tableau de bord central qui sert de "base d\'accueil" pour toutes les activités d\'apprentissage, alimenté par un petit modèle de langage personnalisé et affiné.',
+                skills_title: 'Compétences Clés :',
+                skill1: 'Intégration IA/ML',
+                skill2: 'Développement Web',
+                skill3: 'Technologie Éducative'
             }
         },
         contact: {
@@ -727,17 +972,38 @@ function closeMobileMenu() {
 }
 
 // ===== MODAL FUNCTIONALITY =====
+// Define modal order for navigation (matches project order)
+const modalOrder = ['amazonModal', 'fitnessModal', 'tiktokModal', 'githubModal', 'docuSignModal', 'ragModal', 'leadModal', 'tinyLLMModal'];
+let currentModalIndex = 0;
+
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
         
+        // Update current modal index
+        currentModalIndex = modalOrder.indexOf(modalId);
+        
         // Add animation class
         const modalContent = modal.querySelector('.modal-content');
         if (modalContent) {
             modalContent.classList.add('fade-in');
         }
+        
+        // Initialize image carousel for projects with images
+        if (modalId === 'docuSignModal') {
+            updateNavigationButtons('docuSign');
+        } else if (modalId === 'ragModal') {
+            updateNavigationButtons('rag');
+        } else if (modalId === 'leadModal') {
+            updateNavigationButtons('lead');
+        } else if (modalId === 'tinyLLMModal') {
+            updateNavigationButtons('tinyLLM');
+        }
+        
+        // Ensure modal navigation buttons are always visible
+        ensureModalNavigationVisible();
     }
 }
 
@@ -746,6 +1012,67 @@ function closeModal(modalId) {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
+    }
+}
+
+function ensureModalNavigationVisible() {
+    // Ensure all modal navigation buttons are visible
+    const modalPrevBtns = document.querySelectorAll('.modal-prev');
+    const modalNextBtns = document.querySelectorAll('.modal-next');
+    
+    modalPrevBtns.forEach(btn => {
+        if (btn) {
+            btn.style.display = 'flex';
+        }
+    });
+    
+    modalNextBtns.forEach(btn => {
+        if (btn) {
+            btn.style.display = 'flex';
+        }
+    });
+}
+
+function navigateModal(direction) {
+    // Close current modal
+    const currentModal = document.getElementById(modalOrder[currentModalIndex]);
+    if (currentModal) {
+        currentModal.style.display = 'none';
+    }
+    
+    // Calculate next modal index
+    if (direction === 'next') {
+        currentModalIndex = (currentModalIndex + 1) % modalOrder.length;
+    } else if (direction === 'prev') {
+        currentModalIndex = (currentModalIndex - 1 + modalOrder.length) % modalOrder.length;
+    }
+    
+    // Open next modal
+    const nextModal = document.getElementById(modalOrder[currentModalIndex]);
+    if (nextModal) {
+        nextModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        
+        // Add animation class
+        const modalContent = nextModal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.classList.add('fade-in');
+        }
+        
+        // Initialize image carousel for the new modal
+        const modalId = modalOrder[currentModalIndex];
+        if (modalId === 'docuSignModal') {
+            updateNavigationButtons('docuSign');
+        } else if (modalId === 'ragModal') {
+            updateNavigationButtons('rag');
+        } else if (modalId === 'leadModal') {
+            updateNavigationButtons('lead');
+        } else if (modalId === 'tinyLLMModal') {
+            updateNavigationButtons('tinyLLM');
+        }
+        
+        // Ensure modal navigation buttons are always visible
+        ensureModalNavigationVisible();
     }
 }
 
