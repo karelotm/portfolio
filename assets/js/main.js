@@ -1532,6 +1532,9 @@ function openChatbot() {
         chatbotWindow.classList.add('active');
         isChatbotOpen = true;
         
+        // Add class to body to prevent scroll on mobile
+        document.body.classList.add('chatbot-open');
+        
         // Hide notification dot
         const notificationDot = document.querySelector('.chatbot-notification-dot');
         if (notificationDot) {
@@ -1554,6 +1557,9 @@ function closeChatbot() {
     if (chatbotWindow) {
         chatbotWindow.classList.remove('active');
         isChatbotOpen = false;
+        
+        // Remove class from body to restore scroll on mobile
+        document.body.classList.remove('chatbot-open');
     }
 }
 
