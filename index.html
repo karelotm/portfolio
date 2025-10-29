@@ -42,7 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=12.6">
+    <link rel="stylesheet" href="assets/css/styles.css?v=13.0">
     
     <!-- Favicon -->
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
@@ -533,15 +533,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Project Modals -->
     <!-- Amazon Modal -->
     <div id="amazonModal" class="modal" role="dialog" aria-labelledby="amazonModalTitle" aria-hidden="true">
+        <div class="modal-navigation">
+            <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
         <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
             <span class="close" onclick="closeModal('amazonModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/1E40AF/FFFFFF?text=Amazon+Dashboard+Details" alt="Amazon Dashboard" class="w-full h-64 object-cover">
             <div class="p-8">
@@ -578,15 +578,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Fitness Coach Modal -->
     <div id="fitnessModal" class="modal" role="dialog" aria-labelledby="fitnessModalTitle" aria-hidden="true">
+        <div class="modal-navigation">
+            <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
         <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
             <span class="close" onclick="closeModal('fitnessModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/34D399/FFFFFF?text=Fitness+Sales+Dashboard" alt="Fitness Sales Dashboard" class="w-full h-64 object-cover">
             <div class="p-8">
@@ -623,15 +623,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- TikTok Shop Modal -->
     <div id="tiktokModal" class="modal" role="dialog" aria-labelledby="tiktokModalTitle" aria-hidden="true">
+        <div class="modal-navigation">
+            <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
         <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
             <span class="close" onclick="closeModal('tiktokModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/8B5CF6/FFFFFF?text=TikTok+Market+Analysis" alt="TikTok Market Analysis" class="w-full h-64 object-cover">
             <div class="p-8">
@@ -668,15 +668,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- GitHub Repositories Modal -->
     <div id="githubModal" class="modal" role="dialog" aria-labelledby="githubModalTitle" aria-hidden="true">
+        <div class="modal-navigation">
+            <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
         <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
             <span class="close" onclick="closeModal('githubModal')" aria-label="Close modal">&times;</span>
             <img src="https://placehold.co/800x400/24292E/FFFFFF?text=GitHub+Portfolio" alt="GitHub Portfolio" class="w-full h-64 object-cover">
             <div class="p-8">
@@ -721,15 +721,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- DocuSign Modal -->
     <div id="docuSignModal" class="modal" role="dialog" aria-labelledby="docuSignModalTitle" aria-hidden="true">
+        <div class="modal-navigation">
+            <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
         <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
             <span class="close" onclick="closeModal('docuSignModal')" aria-label="Close modal">&times;</span>
             
             <!-- Image Container with Navigation -->
@@ -789,15 +789,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- RAG Chatbot Modal -->
     <div id="ragModal" class="modal" role="dialog" aria-labelledby="ragModalTitle" aria-hidden="true">
+        <div class="modal-navigation">
+            <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
         <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
             <span class="close" onclick="closeModal('ragModal')" aria-label="Close modal">&times;</span>
             
             <!-- Image Container with Navigation -->
@@ -857,15 +857,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Lead Processing Modal -->
     <div id="leadModal" class="modal" role="dialog" aria-labelledby="leadModalTitle" aria-hidden="true">
+        <div class="modal-navigation">
+            <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
         <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
             <span class="close" onclick="closeModal('leadModal')" aria-label="Close modal">&times;</span>
             
             <!-- Image Container with Navigation -->
@@ -925,15 +925,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Tiny-LLM Learning Modal with Image Carousel -->
     <div id="tinyLLMModal" class="modal" role="dialog" aria-labelledby="tinyLLMModalTitle" aria-hidden="true">
+        <div class="modal-navigation">
+            <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
         <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="modal-nav-btn modal-prev" onclick="navigateModal('prev')" aria-label="Previous project">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button class="modal-nav-btn modal-next" onclick="navigateModal('next')" aria-label="Next project">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
             <span class="close" onclick="closeModal('tinyLLMModal')" aria-label="Close modal">&times;</span>
             
             <!-- Image Carousel Container -->
@@ -1002,6 +1002,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Custom JavaScript -->
-    <script src="assets/js/main.js?v=5.9"></script>
+    <script src="assets/js/main.js?v=6.2"></script>
 </body>
 </html>

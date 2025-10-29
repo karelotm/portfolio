@@ -985,10 +985,16 @@ function openModal(modalId) {
         // Update current modal index
         currentModalIndex = modalOrder.indexOf(modalId);
         
-        // Add animation class
+        // Add backdrop fade animation
+        modal.classList.add('modal-backdrop-fade');
+        
+        // Add opening animation to modal content
         const modalContent = modal.querySelector('.modal-content');
         if (modalContent) {
-            modalContent.classList.add('fade-in');
+            // Remove any existing animation classes
+            modalContent.classList.remove('fade-in', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+            // Add opening animation
+            modalContent.classList.add('modal-open');
         }
         
         // Initialize image carousel for projects with images
@@ -1010,6 +1016,13 @@ function openModal(modalId) {
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
+        // Remove animation classes
+        modal.classList.remove('modal-backdrop-fade');
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.classList.remove('modal-open', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+        }
+        
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
@@ -1034,10 +1047,18 @@ function ensureModalNavigationVisible() {
 }
 
 function navigateModal(direction) {
-    // Close current modal
+    // Close current modal with animation
     const currentModal = document.getElementById(modalOrder[currentModalIndex]);
     if (currentModal) {
-        currentModal.style.display = 'none';
+        const currentModalContent = currentModal.querySelector('.modal-content');
+        if (currentModalContent) {
+            // Add exit animation
+            if (direction === 'next') {
+                currentModalContent.classList.add('slide-out-left');
+            } else if (direction === 'prev') {
+                currentModalContent.classList.add('slide-out-right');
+            }
+        }
     }
     
     // Calculate next modal index
@@ -1047,33 +1068,54 @@ function navigateModal(direction) {
         currentModalIndex = (currentModalIndex - 1 + modalOrder.length) % modalOrder.length;
     }
     
-    // Open next modal
-    const nextModal = document.getElementById(modalOrder[currentModalIndex]);
-    if (nextModal) {
-        nextModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        
-        // Add animation class
-        const modalContent = nextModal.querySelector('.modal-content');
-        if (modalContent) {
-            modalContent.classList.add('fade-in');
+    // Open next modal with animation after a short delay
+    setTimeout(() => {
+        // Close current modal
+        if (currentModal) {
+            currentModal.style.display = 'none';
+            currentModal.classList.remove('modal-backdrop-fade');
+            const currentModalContent = currentModal.querySelector('.modal-content');
+            if (currentModalContent) {
+                // Remove all animation classes
+                currentModalContent.classList.remove('modal-open', 'slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right');
+            }
         }
         
-        // Initialize image carousel for the new modal
-        const modalId = modalOrder[currentModalIndex];
-        if (modalId === 'docuSignModal') {
-            updateNavigationButtons('docuSign');
-        } else if (modalId === 'ragModal') {
-            updateNavigationButtons('rag');
-        } else if (modalId === 'leadModal') {
-            updateNavigationButtons('lead');
-        } else if (modalId === 'tinyLLMModal') {
-            updateNavigationButtons('tinyLLM');
+        // Open next modal
+        const nextModal = document.getElementById(modalOrder[currentModalIndex]);
+        if (nextModal) {
+            nextModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Add backdrop fade animation
+            nextModal.classList.add('modal-backdrop-fade');
+            
+            // Add animation class based on direction
+            const modalContent = nextModal.querySelector('.modal-content');
+            if (modalContent) {
+                if (direction === 'next') {
+                    modalContent.classList.add('slide-in-right');
+                } else if (direction === 'prev') {
+                    modalContent.classList.add('slide-in-left');
+                }
+            }
+            
+            // Initialize image carousel for the new modal
+            const modalId = modalOrder[currentModalIndex];
+            if (modalId === 'docuSignModal') {
+                updateNavigationButtons('docuSign');
+            } else if (modalId === 'ragModal') {
+                updateNavigationButtons('rag');
+            } else if (modalId === 'leadModal') {
+                updateNavigationButtons('lead');
+            } else if (modalId === 'tinyLLMModal') {
+                updateNavigationButtons('tinyLLM');
+            }
+            
+            // Ensure modal navigation buttons are always visible
+            ensureModalNavigationVisible();
         }
-        
-        // Ensure modal navigation buttons are always visible
-        ensureModalNavigationVisible();
-    }
+    }, 300); // Wait for exit animation to complete
 }
 
 function handleModalClick(event) {
