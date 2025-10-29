@@ -367,6 +367,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 5: Document Signature Automation -->
+                <div data-aos="fade-up" data-aos-delay="500" class="project-card bg-white rounded-xl overflow-hidden shadow-lg" onclick="openModal('docuSignModal')" role="button" tabindex="0" aria-label="View Document Signature Automation project details">
+                    <img src="assets/images/DocuSign.png" alt="Automated Document Signature & Notification Workflow" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-blue-600 font-semibold" data-translate="projects.p5.category">Process Automation</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3" data-translate="projects.p5.title">Document Signature & Notification Workflow</h3>
+                        <p class="text-gray-600 mb-4" data-translate="projects.p5.description">
+                            Automated the entire document signature process by integrating Notion, DocuSign, and WhatsApp. When a contract status changes to "Ready for Signature" in Notion, the system automatically generates and sends DocuSign envelopes, then notifies stakeholders via WhatsApp.
+                        </p>
+                        <div class="pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold mb-2" data-translate="projects.p5.skills_title">Key Skills:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p5.skill1">n8n Workflows</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p5.skill2">API Integration</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p5.skill3">Process Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: RAG AI Chatbot -->
+                <div data-aos="fade-up" data-aos-delay="600" class="project-card bg-white rounded-xl overflow-hidden shadow-lg" onclick="openModal('ragModal')" role="button" tabindex="0" aria-label="View RAG AI Chatbot project details">
+                    <img src="assets/images/n8n_chatBot_Rag.png" alt="RAG AI Chatbot with Automated Knowledge Base" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-green-600 font-semibold" data-translate="projects.p6.category">AI & Machine Learning</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3" data-translate="projects.p6.title">RAG AI Chatbot with Automated Knowledge Base</h3>
+                        <p class="text-gray-600 mb-4" data-translate="projects.p6.description">
+                            Built a sophisticated two-part RAG (Retrieval-Augmented Generation) system that automatically syncs documents from Google Drive, processes them into vector embeddings, and creates an intelligent chatbot that answers questions based on the specific knowledge base.
+                        </p>
+                        <div class="pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold mb-2" data-translate="projects.p6.skills_title">Key Skills:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p6.skill1">RAG Architecture</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p6.skill2">Vector Databases</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p6.skill3">AI Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Lead Processing & Routing -->
+                <div data-aos="fade-up" data-aos-delay="700" class="project-card bg-white rounded-xl overflow-hidden shadow-lg" onclick="openModal('leadModal')" role="button" tabindex="0" aria-label="View AI-Powered Lead Processing project details">
+                    <img src="assets/images/New_Lead.png" alt="AI-Powered Lead Processing & Routing" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-purple-600 font-semibold" data-translate="projects.p7.category">Sales Automation</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3" data-translate="projects.p7.title">AI-Powered Lead Processing & Routing</h3>
+                        <p class="text-gray-600 mb-4" data-translate="projects.p7.description">
+                            Created an intelligent lead processing system that captures leads from Tally forms, uses AI to analyze and categorize them, then automatically routes high-priority leads to the sales team via Slack while logging all leads in Notion CRM.
+                        </p>
+                        <div class="pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold mb-2" data-translate="projects.p7.skills_title">Key Skills:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p7.skill1">Lead Scoring</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p7.skill2">CRM Integration</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full" data-translate="projects.p7.skill3">Conditional Logic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -604,12 +664,123 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
+    <!-- DocuSign Modal -->
+    <div id="docuSignModal" class="modal" role="dialog" aria-labelledby="docuSignModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('docuSignModal')" aria-label="Close modal">&times;</span>
+            <img src="assets/images/DocuSign.png" alt="Document Signature Automation" class="w-full h-64 object-cover">
+            <div class="p-8">
+                <h2 id="docuSignModalTitle" class="text-3xl font-bold text-gray-900 mb-4">Document Signature & Notification Workflow</h2>
+                <p class="text-gray-600 mb-6">
+                    This workflow automates the process of sending documents for signature and notifying stakeholders, triggered directly from a Notion database. The system streamlines the final step of client or contract processes by automatically generating and sending DocuSign envelopes when task statuses are updated.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">How it Works:</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• <strong>Trigger:</strong> Notion database item update</li>
+                            <li>• <strong>Filter:</strong> Validates conditions (email exists, status = "Ready for Signature")</li>
+                            <li>• <strong>Action:</strong> Sends DocuSign envelope using template</li>
+                            <li>• <strong>Notification:</strong> WhatsApp alert to stakeholders</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Tools Used:</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• n8n (Workflow Automation)</li>
+                            <li>• Notion (Database & Triggers)</li>
+                            <li>• DocuSign (Document Signing)</li>
+                            <li>• WhatsApp (Notifications)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-gray-800"><strong>Impact:</strong> Eliminates manual document processing, reduces errors, and ensures timely contract execution with automatic stakeholder notifications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RAG Chatbot Modal -->
+    <div id="ragModal" class="modal" role="dialog" aria-labelledby="ragModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ragModal')" aria-label="Close modal">&times;</span>
+            <img src="assets/images/n8n_chatBot_Rag.png" alt="RAG AI Chatbot" class="w-full h-64 object-cover">
+            <div class="p-8">
+                <h2 id="ragModalTitle" class="text-3xl font-bold text-gray-900 mb-4">RAG AI Chatbot with Automated Knowledge Base</h2>
+                <p class="text-gray-600 mb-6">
+                    A sophisticated two-part system that builds a complete Retrieval-Augmented Generation (RAG) chatbot. The system can "learn" from documents you provide and answer questions based on that specific knowledge, automatically synchronized from Google Drive.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Workflow A - Knowledge Base Pipeline:</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• <strong>Trigger:</strong> Google Drive file changes</li>
+                            <li>• <strong>Processing:</strong> Text extraction and chunking</li>
+                            <li>• <strong>Vectorizing:</strong> Google Gemini embeddings</li>
+                            <li>• <strong>Storage:</strong> Supabase vector database</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Workflow B - RAG Chatbot:</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• <strong>Retrieval:</strong> Search relevant documents</li>
+                            <li>• <strong>Generation:</strong> Google Gemini responses</li>
+                            <li>• <strong>Memory:</strong> Postgres chat history</li>
+                            <li>• <strong>Accuracy:</strong> Context-based answers only</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-gray-800"><strong>Impact:</strong> Prevents AI hallucination by forcing responses based on specific documents, creating an intelligent assistant that learns from your knowledge base.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lead Processing Modal -->
+    <div id="leadModal" class="modal" role="dialog" aria-labelledby="leadModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('leadModal')" aria-label="Close modal">&times;</span>
+            <img src="assets/images/New_Lead.png" alt="AI-Powered Lead Processing" class="w-full h-64 object-cover">
+            <div class="p-8">
+                <h2 id="leadModalTitle" class="text-3xl font-bold text-gray-900 mb-4">AI-Powered Lead Processing & Routing</h2>
+                <p class="text-gray-600 mb-6">
+                    An intelligent sorting system for new sales leads that captures leads from web forms, uses AI to analyze them, and automatically routes information to the correct systems and people based on priority and content analysis.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Process Flow:</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• <strong>Capture:</strong> Tally form webhook trigger</li>
+                            <li>• <strong>AI Analysis:</strong> Google Gemini lead processing</li>
+                            <li>• <strong>Enrichment:</strong> Priority scoring and categorization</li>
+                            <li>• <strong>Distribution:</strong> Multi-channel routing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Integration Points:</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• <strong>Zapier:</strong> External system integration</li>
+                            <li>• <strong>Notion:</strong> CRM database logging</li>
+                            <li>• <strong>Slack:</strong> Conditional team alerts</li>
+                            <li>• <strong>Priority Routing:</strong> Hot/Warm/Cold leads</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-gray-800"><strong>Impact:</strong> Automates lead qualification and ensures high-priority leads reach the sales team immediately while maintaining comprehensive lead tracking in the CRM system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- External JavaScript Libraries -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Custom JavaScript -->
-    <script src="assets/js/main.js?v=5.0"></script>
+    <script src="assets/js/main.js?v=5.2"></script>
 </body>
 </html>

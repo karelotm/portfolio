@@ -159,6 +159,33 @@ const translations = {
                 impact_title: 'Impact:',
                 impact_text: 'Demonstrates continuous learning and practical application of data science concepts through real-world projects and research initiatives.',
                 button: 'View All Repositories'
+            },
+            p5: {
+                category: 'Process Automation',
+                title: 'Document Signature & Notification Workflow',
+                description: 'Automated the entire document signature process by integrating Notion, DocuSign, and WhatsApp. When a contract status changes to "Ready for Signature" in Notion, the system automatically generates and sends DocuSign envelopes, then notifies stakeholders via WhatsApp.',
+                skills_title: 'Key Skills:',
+                skill1: 'n8n Workflows',
+                skill2: 'API Integration',
+                skill3: 'Process Automation'
+            },
+            p6: {
+                category: 'AI & Machine Learning',
+                title: 'RAG AI Chatbot with Automated Knowledge Base',
+                description: 'Built a sophisticated two-part RAG (Retrieval-Augmented Generation) system that automatically syncs documents from Google Drive, processes them into vector embeddings, and creates an intelligent chatbot that answers questions based on the specific knowledge base.',
+                skills_title: 'Key Skills:',
+                skill1: 'RAG Architecture',
+                skill2: 'Vector Databases',
+                skill3: 'AI Integration'
+            },
+            p7: {
+                category: 'Sales Automation',
+                title: 'AI-Powered Lead Processing & Routing',
+                description: 'Created an intelligent lead processing system that captures leads from Tally forms, uses AI to analyze and categorize them, then automatically routes high-priority leads to the sales team via Slack while logging all leads in Notion CRM.',
+                skills_title: 'Key Skills:',
+                skill1: 'Lead Scoring',
+                skill2: 'CRM Integration',
+                skill3: 'Conditional Logic'
             }
         },
         contact: {
@@ -305,6 +332,33 @@ const translations = {
                 impact_title: 'Impact :',
                 impact_text: 'Démontre un apprentissage continu et une application pratique des concepts de la science des données à travers des projets concrets et des initiatives de recherche.',
                 button: 'Voir Tous les Dépôts'
+            },
+            p5: {
+                category: 'Automatisation de Processus',
+                title: 'Workflow de Signature de Documents & Notifications',
+                description: 'Automatisé l\'ensemble du processus de signature de documents en intégrant Notion, DocuSign et WhatsApp. Quand le statut d\'un contrat change à "Prêt pour Signature" dans Notion, le système génère et envoie automatiquement des enveloppes DocuSign, puis notifie les parties prenantes via WhatsApp.',
+                skills_title: 'Compétences Clés :',
+                skill1: 'Workflows n8n',
+                skill2: 'Intégration API',
+                skill3: 'Automatisation de Processus'
+            },
+            p6: {
+                category: 'IA & Machine Learning',
+                title: 'Chatbot RAG IA avec Base de Connaissances Automatisée',
+                description: 'Construit un système RAG (Retrieval-Augmented Generation) sophistiqué en deux parties qui synchronise automatiquement les documents depuis Google Drive, les traite en embeddings vectoriels, et crée un chatbot intelligent qui répond aux questions basées sur la base de connaissances spécifique.',
+                skills_title: 'Compétences Clés :',
+                skill1: 'Architecture RAG',
+                skill2: 'Bases de Données Vectorielles',
+                skill3: 'Intégration IA'
+            },
+            p7: {
+                category: 'Automatisation Commerciale',
+                title: 'Traitement & Routage de Prospects Alimenté par l\'IA',
+                description: 'Créé un système intelligent de traitement de prospects qui capture les leads depuis les formulaires Tally, utilise l\'IA pour les analyser et les catégoriser, puis route automatiquement les prospects prioritaires vers l\'équipe commerciale via Slack tout en enregistrant tous les leads dans le CRM Notion.',
+                skills_title: 'Compétences Clés :',
+                skill1: 'Scoring de Prospects',
+                skill2: 'Intégration CRM',
+                skill3: 'Logique Conditionnelle'
             }
         },
         contact: {
